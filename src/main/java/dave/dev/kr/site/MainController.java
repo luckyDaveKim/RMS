@@ -61,6 +61,11 @@ public class MainController {
         return "Do Hello World";
     }
 
+    @RequestMapping("/land/list")
+    public String landList() throws Exception {
+        return "land/list";
+    }
+
     @RequestMapping(value = "/*", method = RequestMethod.GET)
     public ResponseEntity<String> pageNotFound() {
         return new ResponseEntity<String>("Page not found", HttpStatus.BAD_REQUEST);

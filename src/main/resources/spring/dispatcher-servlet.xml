@@ -22,4 +22,7 @@
     </beans:bean>
 
     <mvc:resources mapping="/pages/**" location="/WEB-INF/pages/"/>
+
+    <mvc:resources mapping="/**" location="/resources/"/>
+
 </beans:beans>
