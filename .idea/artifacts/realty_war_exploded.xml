@@ -25,8 +25,8 @@
           <element id="library" level="project" name="Maven: org.apache.tiles:tiles-autotag-core-runtime:1.2" />
           <element id="library" level="project" name="Maven: org.apache.tiles:tiles-request-jsp:1.0.7" />
           <element id="library" level="project" name="Maven: jstl:jstl:1.2" />
-          <element id="library" level="project" name="Spring MVC-4.3.13.RELEASE" />
           <element id="library" level="project" name="Spring-4.3.13.RELEASE" />
+          <element id="library" level="project" name="Spring MVC-4.3.13.RELEASE" />
         </element>
       </element>
       <element id="directory" name="META-INF">
