@@ -19,7 +19,7 @@
                     <a aria-expanded="false" role="button" href="#" class="dropdown-toggle"
                        data-toggle="dropdown">부동산 <span class="caret"></span></a>
                     <ul role="menu" class="dropdown-menu">
-                        <li><a href="/lands/list">매물</a></li>
+                        <li><a href="/land/list">매물</a></li>
                     </ul>
                 </li>
             </ul>
