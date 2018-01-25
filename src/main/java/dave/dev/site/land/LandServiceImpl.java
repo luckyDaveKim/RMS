@@ -5,14 +5,21 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 
+/**
+ * The type Land service.
+ */
 @Service("landService")
 public class LandServiceImpl extends BaseService implements LandService {
 
     @Resource(name = "landDao")
     private LandDao landDao;
 
-    public LandVo selectLandInfo(LandVo param) throws Exception {
+    public LandVo selectLand(LandVo param) throws Exception {
         return landDao.selectLand(param);
+    }
+
+    public int insertLand(LandVo param) throws Exception {
+        return landDao.insertLand(param);
     }
 
 }

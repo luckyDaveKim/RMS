@@ -1,28 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="landDAO">
+<mapper namespace="landDao">
 
-    <select id="selectLand" resultType="LandVO" parameterType="LandVO">
-        /* landDAO.selectLand */
+    <select id="selectLand" parameterType="LandVo" resultType="LandVo">
+        /* landDao.selectLand */
         <![CDATA[
-        SELECT ID
-              , ADDRESS
-              , AREA
+        SELECT *
         FROM    LANDS
-        WHERE   ID = #{id}
+        WHERE   LAND_SQ = #{code}
         ]]>
     </select>
 
-    <select id="selectLands" resultType="LandVO" parameterType="LandVO">
-        /* landDAO.selectLand */
-        <![CDATA[
-        SELECT ID
-              , ADDRESS
-              , AREA
-        FROM    LANDS
-        WHERE   ID = #{id}
-        ]]>
-    </select>
+    <insert id="insertLand" parameterType="LandVo" useGeneratedKeys="true" keyProperty="LAND_SQ">
+        /* landDao.insertLand */
+        INSERT INTO LANDS
+            (
+                SALE_TYPE_CD,
+                ADDRESS,
+                BUILDING_NAME,
+                BUILDING_NUMBER,
+                AREA,
+                PRICE,
+                FLOOR,
+                FLOOR_SIZE,
+                ROOM_COUNT,
+                BATHROOM_COUNT,
+                MEMO,
+                SALESMAN,
+                SALESMAN_CONTACT,
+                SALE_STATE_CD,
+                USED_FL
+            )
+        VALUES
+            (
+                #{saleType.code},
+                #{address},
+                #{buildingName},
+                #{buildingNumber},
+                #{area},
+                #{price},
+                #{floor},
+                #{floorSize},
+                #{roomCount},
+                #{bathroomCount},
+                #{memo},
+                #{salesman},
+                #{salesmanContact},
+                #{saleState.code},
+                #{used}
+            )
+    </insert>
 
 </mapper>

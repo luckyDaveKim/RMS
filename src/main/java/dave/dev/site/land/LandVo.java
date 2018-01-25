@@ -2,191 +2,441 @@ package dave.dev.site.land;
 
 import dave.dev.com.base.BaseVo;
 
-import java.sql.Timestamp;
-
+/**
+ * The type Land vo.
+ */
 public class LandVo extends BaseVo {
 
+    /**
+     * The enum Sale type.
+     */
     public enum SaleType {
-        BUY("매매"), LEASE("전세"), RENT("월세");
+        BUY(1, "매매"),
+        LEASE(2, "전세"),
+        RENT(3, "월세");
 
-        final private String name;
+        private final int code;
+        private final String description;
 
-        private SaleType(String name) {
-            this.name = name;
+        private SaleType(int code, String description) {
+            this.code = code;
+            this.description = description;
         }
 
-        public String getName() {
-            return name;
+        /**
+         * Gets code.
+         *
+         * @return the code
+         */
+        public int getCode() {
+            return code;
+        }
+
+        /**
+         * Gets description.
+         *
+         * @return the description
+         */
+        public String getDescription() {
+            return description;
         }
     }
 
+    /**
+     * The enum Sale state.
+     */
     public enum SaleState {
-        SALE("판매중"), SOLD_OUT("판매완료");
+        SALE(1, "판매중"),
+        SOLD_OUT(2, "판매완료");
 
-        final private String name;
+        private final int code;
+        private final String description;
 
-        private SaleState(String name) {
-            this.name = name;
+        private SaleState(int code, String description) {
+            this.code = code;
+            this.description = description;
         }
 
-        public String getName() {
-            return name;
+        /**
+         * Gets code.
+         *
+         * @return the code
+         */
+        public int getCode() {
+            return code;
+        }
+
+        /**
+         * Gets description.
+         *
+         * @return the description
+         */
+        public String getDescription() {
+            return description;
         }
     }
 
-    private SaleType saleType;
-    private String address;
-    private String buildingName;
-    private String buildingNumber;
-    private float area;
-    private String floor;
-    private String floorCnt;
-    private int roomCnt;
-    private int bathroomCnt;
-    private Timestamp livingDate;
-    private String memo;
-    private String salesman;
-    private String salesmnContact;
-    private Timestamp creationDate;
-    private Timestamp modificationDate;
-    private SaleState saleState;
-    private boolean used;
-    private byte[] images;
+    private int code;                   // 매물 코드
+    private SaleType saleType;          // 매물 구분
+    private String address;             // 주소
+    private String buildingName;        // 건물명
+    private String buildingNumber;      // 호수
+    private float area;                 // 면적
+    private int price;                  // 가격
+    private String floor;               // 해당층
+    private String floorSize;           // 총층
+    private int roomCount;              // 방수
+    private int bathroomCount;          // 욕실수
+    private String liveableDate;        // 입주가능일
+    private String memo;                // 상세정보
+    private String salesman;            // 판매자
+    private String salesmanContact;     // 판매자 연락처
+    private String creationDateTime;    // 생성날짜
+    private String modificationDateTime;// 수정날짜
+    private SaleState saleState;        // 판매 상태
+    private boolean used;               // 사용여부
+    private byte[] images;              // 이미지
 
+    /**
+     * Gets code.
+     *
+     * @return the code
+     */
+    public int getCode() {
+        return code;
+    }
+
+    /**
+     * Sets code.
+     *
+     * @param code the code
+     */
+    public void setCode(int code) {
+        this.code = code;
+    }
+
+    /**
+     * Gets sale type.
+     *
+     * @return the sale type
+     */
     public SaleType getSaleType() {
         return saleType;
     }
 
-    public void setSaleType(SaleType type) {
-        this.saleType = type;
+    /**
+     * Sets sale type.
+     *
+     * @param saleType the sale type
+     */
+    public void setSaleType(SaleType saleType) {
+        this.saleType = saleType;
     }
 
+    /**
+     * Gets address.
+     *
+     * @return the address
+     */
     public String getAddress() {
         return address;
     }
 
+    /**
+     * Sets address.
+     *
+     * @param address the address
+     */
     public void setAddress(String address) {
         this.address = address;
     }
 
+    /**
+     * Gets building name.
+     *
+     * @return the building name
+     */
     public String getBuildingName() {
         return buildingName;
     }
 
+    /**
+     * Sets building name.
+     *
+     * @param buildingName the building name
+     */
     public void setBuildingName(String buildingName) {
         this.buildingName = buildingName;
     }
 
+    /**
+     * Gets building number.
+     *
+     * @return the building number
+     */
     public String getBuildingNumber() {
         return buildingNumber;
     }
 
+    /**
+     * Sets building number.
+     *
+     * @param buildingNumber the building number
+     */
     public void setBuildingNumber(String buildingNumber) {
         this.buildingNumber = buildingNumber;
     }
 
+    /**
+     * Gets price.
+     *
+     * @return the price
+     */
+    public int getPrice() {
+        return price;
+    }
+
+    /**
+     * Sets price.
+     *
+     * @param price the price
+     */
+    public void setPrice(Integer price) {
+        this.price = (price == null || price < 0) ? 0 : price;
+    }
+
+    /**
+     * Gets area.
+     *
+     * @return the area
+     */
     public float getArea() {
         return area;
     }
 
-    public void setArea(float area) {
-        this.area = area;
+    /**
+     * Sets area.
+     *
+     * @param area the area
+     */
+    public void setArea(Float area) {
+        this.area = (area == null || area < 0) ? 0 : area;
     }
 
+    /**
+     * Gets floor.
+     *
+     * @return the floor
+     */
     public String getFloor() {
         return floor;
     }
 
+    /**
+     * Sets floor.
+     *
+     * @param floor the floor
+     */
     public void setFloor(String floor) {
         this.floor = floor;
     }
 
-    public String getFloorCnt() {
-        return floorCnt;
+    /**
+     * Gets floor size.
+     *
+     * @return the floor size
+     */
+    public String getFloorSize() {
+        return floorSize;
     }
 
-    public void setFloorCnt(String floorCnt) {
-        this.floorCnt = floorCnt;
+    /**
+     * Sets floor size.
+     *
+     * @param floorSize the floor size
+     */
+    public void setFloorSize(String floorSize) {
+        this.floorSize = floorSize;
     }
 
-    public int getRoomCnt() {
-        return roomCnt;
+    /**
+     * Gets room count.
+     *
+     * @return the room count
+     */
+    public int getRoomCount() {
+        return roomCount;
     }
 
-    public void setRoomCnt(int roomCnt) {
-        this.roomCnt = roomCnt;
+    /**
+     * Sets room count.
+     *
+     * @param roomCount the room count
+     */
+    public void setRoomCount(Integer roomCount) {
+        this.roomCount = (roomCount == null || roomCount < 0) ? 0 : roomCount;
     }
 
-    public int getBathroomCnt() {
-        return bathroomCnt;
+    /**
+     * Gets bathroom count.
+     *
+     * @return the bathroom count
+     */
+    public int getBathroomCount() {
+        return bathroomCount;
     }
 
-    public void setBathroomCnt(int bathroomCnt) {
-        this.bathroomCnt = bathroomCnt;
+    /**
+     * Sets bathroom count.
+     *
+     * @param bathroomCount the bathroom count
+     */
+    public void setBathroomCount(Integer bathroomCount) {
+        this.bathroomCount = (bathroomCount == null || bathroomCount < 0) ? 0 : bathroomCount;
     }
 
-    public Timestamp getLivingDate() {
-        return livingDate;
+    /**
+     * Gets liveable date.
+     *
+     * @return the liveable date
+     */
+    public String getLiveableDate() {
+        return liveableDate;
     }
 
-    public void setLivingDate(Timestamp livingDate) {
-        this.livingDate = livingDate;
+    /**
+     * Sets liveable date.
+     *
+     * @param liveableDate the liveable date
+     */
+    public void setLiveableDate(String liveableDate) {
+        this.liveableDate = liveableDate;
     }
 
+    /**
+     * Gets memo.
+     *
+     * @return the memo
+     */
     public String getMemo() {
         return memo;
     }
 
+    /**
+     * Sets memo.
+     *
+     * @param memo the memo
+     */
     public void setMemo(String memo) {
         this.memo = memo;
     }
 
+    /**
+     * Gets salesman.
+     *
+     * @return the salesman
+     */
     public String getSalesman() {
         return salesman;
     }
 
+    /**
+     * Sets salesman.
+     *
+     * @param salesman the salesman
+     */
     public void setSalesman(String salesman) {
         this.salesman = salesman;
     }
 
-    public String getSalesmnContact() {
-        return salesmnContact;
+    /**
+     * Gets salesman contact.
+     *
+     * @return the salesman contact
+     */
+    public String getSalesmanContact() {
+        return salesmanContact;
     }
 
-    public void setSalesmnContact(String salesmnContact) {
-        this.salesmnContact = salesmnContact;
+    /**
+     * Sets salesman contact.
+     *
+     * @param salesmanContact the salesman contact
+     */
+    public void setSalesmanContact(String salesmanContact) {
+        this.salesmanContact = salesmanContact;
     }
 
-    public Timestamp getCreationDate() {
-        return creationDate;
+    /**
+     * Gets creation date time.
+     *
+     * @return the creation date time
+     */
+    public String getCreationDateTime() {
+        return creationDateTime;
     }
 
-    public void setCreationDate(Timestamp creationDate) {
-        this.creationDate = creationDate;
+    /**
+     * Sets creation date time.
+     *
+     * @param creationDateTime the creation date time
+     */
+    public void setCreationDateTime(String creationDateTime) {
+        this.creationDateTime = creationDateTime;
     }
 
-    public Timestamp getModificationDate() {
-        return modificationDate;
+    /**
+     * Gets modification date time.
+     *
+     * @return the modification date time
+     */
+    public String getModificationDateTime() {
+        return modificationDateTime;
     }
 
-    public void setModificationDate(Timestamp modificationDate) {
-        this.modificationDate = modificationDate;
+    /**
+     * Sets modification date time.
+     *
+     * @param modificationDateTime the modification date time
+     */
+    public void setModificationDateTime(String modificationDateTime) {
+        this.modificationDateTime = modificationDateTime;
     }
 
+    /**
+     * Gets sale state.
+     *
+     * @return the sale state
+     */
     public SaleState getSaleState() {
         return saleState;
     }
 
+    /**
+     * Sets sale state.
+     *
+     * @param saleState the sale state
+     */
     public void setSaleState(SaleState saleState) {
         this.saleState = saleState;
     }
 
+    /**
+     * Is used boolean.
+     *
+     * @return the boolean
+     */
     public boolean isUsed() {
         return used;
     }
 
-    public void setUsed(boolean used) {
-        this.used = used;
+    /**
+     * Sets used.
+     *
+     * @param used the used
+     */
+    public void setUsed(Boolean used) {
+        this.used = (used == null) ? true : used;
     }
 
 }
