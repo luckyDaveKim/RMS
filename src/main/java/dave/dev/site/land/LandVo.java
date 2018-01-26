@@ -76,15 +76,15 @@ public class LandVo extends BaseVo {
         }
     }
 
-    private int code;                   // 매물 코드
+    private int landSq;                 // 매물 코드
     private SaleType saleType;          // 매물 구분
     private String address;             // 주소
     private String buildingName;        // 건물명
-    private String buildingNumber;      // 호수
+    private int buildingNumber;         // 호수
     private float area;                 // 면적
     private int price;                  // 가격
-    private String floor;               // 해당층
-    private String floorSize;           // 총층
+    private int floor;                  // 해당층
+    private int floorSize;              // 총층
     private int roomCount;              // 방수
     private int bathroomCount;          // 욕실수
     private String liveableDate;        // 입주가능일
@@ -94,25 +94,14 @@ public class LandVo extends BaseVo {
     private String creationDateTime;    // 생성날짜
     private String modificationDateTime;// 수정날짜
     private SaleState saleState;        // 판매 상태
-    private boolean used;               // 사용여부
     private byte[] images;              // 이미지
 
-    /**
-     * Gets code.
-     *
-     * @return the code
-     */
-    public int getCode() {
-        return code;
+    public int getLandSq() {
+        return landSq;
     }
 
-    /**
-     * Sets code.
-     *
-     * @param code the code
-     */
-    public void setCode(int code) {
-        this.code = code;
+    public void setLandSq(Integer landSq) {
+        this.landSq = (landSq == null || landSq < 0) ? 0 : landSq;
     }
 
     /**
@@ -169,22 +158,12 @@ public class LandVo extends BaseVo {
         this.buildingName = buildingName;
     }
 
-    /**
-     * Gets building number.
-     *
-     * @return the building number
-     */
-    public String getBuildingNumber() {
+    public int getBuildingNumber() {
         return buildingNumber;
     }
 
-    /**
-     * Sets building number.
-     *
-     * @param buildingNumber the building number
-     */
-    public void setBuildingNumber(String buildingNumber) {
-        this.buildingNumber = buildingNumber;
+    public void setBuildingNumber(Integer buildingNumber) {
+        this.buildingNumber = (buildingNumber == null || buildingNumber <= 0) ? 1 : buildingNumber;
     }
 
     /**
@@ -220,43 +199,23 @@ public class LandVo extends BaseVo {
      * @param area the area
      */
     public void setArea(Float area) {
-        this.area = (area == null || area < 0) ? 0 : area;
+        this.area = (area == null || area <= 0) ? 1 : area;
     }
 
-    /**
-     * Gets floor.
-     *
-     * @return the floor
-     */
-    public String getFloor() {
+    public int getFloor() {
         return floor;
     }
 
-    /**
-     * Sets floor.
-     *
-     * @param floor the floor
-     */
-    public void setFloor(String floor) {
-        this.floor = floor;
+    public void setFloor(Integer floor) {
+        this.floor = (floor == null || floor <= 0) ? 1 : floor;
     }
 
-    /**
-     * Gets floor size.
-     *
-     * @return the floor size
-     */
-    public String getFloorSize() {
+    public int getFloorSize() {
         return floorSize;
     }
 
-    /**
-     * Sets floor size.
-     *
-     * @param floorSize the floor size
-     */
-    public void setFloorSize(String floorSize) {
-        this.floorSize = floorSize;
+    public void setFloorSize(Integer floorSize) {
+        this.floorSize = (floorSize == null || floorSize < 0) ? 0 : floorSize;
     }
 
     /**
@@ -419,24 +378,6 @@ public class LandVo extends BaseVo {
      */
     public void setSaleState(SaleState saleState) {
         this.saleState = saleState;
-    }
-
-    /**
-     * Is used boolean.
-     *
-     * @return the boolean
-     */
-    public boolean isUsed() {
-        return used;
-    }
-
-    /**
-     * Sets used.
-     *
-     * @param used the used
-     */
-    public void setUsed(Boolean used) {
-        this.used = (used == null) ? true : used;
     }
 
 }

@@ -6,11 +6,12 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.annotation.Resource;
-import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.Locale;
+import java.util.List;
 
 /**
  * 매물 컨트롤러
@@ -29,24 +30,31 @@ public class LandController extends BaseController {
      * @return the string
      */
     @RequestMapping(value = "/list", method = RequestMethod.GET)
-    public String showLandList() {
+    public String showLandList(Model model) throws Exception {
+        // land list 조회
+        List<LandVo> landVos = landService.selectLandList(new LandVo());
+
+        model.addAttribute("landVos", landVos);
+
         return "land/list";
     }
 
     /**
-     * Land detail string.
+     * Show land detail string.
      *
-     * @param id the id
+     * @param model  the model
+     * @param landSq the landSq
      * @return the string
      * @throws Exception the exception
      */
-    @RequestMapping(value = "/detail/{id}", method = RequestMethod.GET)
-    public String showLandDetail(@PathVariable(value = "id") int id) throws Exception {
-        LandVo landVo = new LandVo();
-//        landVo.setCode(1);
-        System.out.println(id + "를 상세하게본다");
-        System.out.println(landService.selectLand(landVo));
-        System.out.println(id + "를 상세하게본다 끝");
+    @RequestMapping(value = "/detail/{landSq}", method = RequestMethod.GET)
+    public String showLandDetail(Model model, @PathVariable(value = "landSq") int landSq) throws Exception {
+        // land 정보 조회
+        LandVo landVo = landService.selectLandBySq(landSq);
+
+        model.addAttribute("landVo", landVo);
+
+        System.out.println("조회 : " + landSq);
 
         return "land/detail";
     }
@@ -54,23 +62,15 @@ public class LandController extends BaseController {
     /**
      * Land writing string.
      *
+     * @param model the model
      * @return the string
      */
     @RequestMapping(value = "/create", method = RequestMethod.GET)
-    public String showLandWriting(Locale locale, Model model) {
-//        System.out.println("생성 화면 호출.");
-//
-//        model.addAttribute("now", new Date());
-//        model.addAttribute("now2", "hi");
-//
-//        return "land/create";
+    public String showLandWriting(Model model) {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        String formattedDate = dateFormat.format(new Date());
 
-        Date date = new Date();
-        DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
-
-        String formattedDate = dateFormat.format(date);
-
-        model.addAttribute("serverTime", formattedDate);
+        model.addAttribute("serverDate", formattedDate);
 
         return "land/create";
     }
@@ -78,25 +78,35 @@ public class LandController extends BaseController {
     /**
      * Write land string.
      *
+     * @param landVo       the land vo
+     * @param liveableDate the liveable date
      * @return the string
+     * @throws Exception the exception
      */
     @RequestMapping(value = "/create", method = RequestMethod.POST)
-    public String writeLand(LandVo landVo) throws Exception {
-        System.out.println("다음 생성 한다." + landVo);
-        System.out.println("키" + landService.insertLand(landVo));
+    public String writeLand(LandVo landVo, @RequestParam("liveableDate") String liveableDate) throws Exception {
+        // 판매 상태 설정 - "판매중"
+        landVo.setSaleState(LandVo.SaleState.SALE);
 
-        return String.format("redirect:/land/detail/%d", 10);
+        // land 정보 삽입
+        landService.insertLand(landVo);
+
+        return String.format("redirect:/land/detail/%d", landVo.getLandSq());
     }
 
     /**
-     * Land edit string.
+     * Show land edit string.
      *
-     * @param id the id
+     * @param landSq the land sq
      * @return the string
      */
-    @RequestMapping(value = "/edit/{id}", method = RequestMethod.GET)
-    public String showLandEdit(@PathVariable(value = "id") int id) {
-        System.out.println(id + "를 수정한다");
+    @RequestMapping(value = "/edit/{landSq}", method = RequestMethod.GET)
+    public String showLandEdit(Model model, @PathVariable(value = "landSq") int landSq) throws Exception {
+        // land 정보 조회
+        LandVo landVo = landService.selectLandBySq(landSq);
+
+        model.addAttribute("landVo", landVo);
+
         return "land/edit";
     }
 

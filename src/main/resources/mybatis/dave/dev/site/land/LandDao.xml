@@ -4,19 +4,35 @@
 <mapper namespace="landDao">
 
     <select id="selectLand" parameterType="LandVo" resultType="LandVo">
-        /* landDao.selectLand */
         <![CDATA[
         SELECT *
         FROM    LANDS
-        WHERE   LAND_SQ = #{code}
+        WHERE   LAND_SQ = #{landSq}
         ]]>
     </select>
 
-    <insert id="insertLand" parameterType="LandVo" useGeneratedKeys="true" keyProperty="LAND_SQ">
-        /* landDao.insertLand */
+    <select id="selectLandBySq" parameterType="int" resultType="LandVo">
+        <![CDATA[
+        SELECT *
+        FROM    LANDS
+        WHERE   LAND_SQ = #{landSq}
+        ]]>
+    </select>
+
+    <select id="selectLandList" parameterType="LandVo" resultType="LandVo">
+        <![CDATA[
+        SELECT *
+        FROM    LANDS
+        WHERE   SALE_STATE = "SALE"
+        ]]>
+    </select>
+    <!--TODO : enum 을 통한 where 조건절 삽입 방법???
+    WHERE   SALE_STATE = #{saleState}-->
+
+    <insert id="insertLand" parameterType="LandVo" useGeneratedKeys="true" keyProperty="landSq" keyColumn="LAND_SQ">
         INSERT INTO LANDS
             (
-                SALE_TYPE_CD,
+                SALE_TYPE,
                 ADDRESS,
                 BUILDING_NAME,
                 BUILDING_NUMBER,
@@ -26,15 +42,15 @@
                 FLOOR_SIZE,
                 ROOM_COUNT,
                 BATHROOM_COUNT,
+                LIVEABLE_DATE,
                 MEMO,
                 SALESMAN,
                 SALESMAN_CONTACT,
-                SALE_STATE_CD,
-                USED_FL
+                SALE_STATE
             )
         VALUES
             (
-                #{saleType.code},
+                #{saleType},
                 #{address},
                 #{buildingName},
                 #{buildingNumber},
@@ -44,11 +60,11 @@
                 #{floorSize},
                 #{roomCount},
                 #{bathroomCount},
+                STR_TO_DATE(#{liveableDate}, '%Y-%m-%d'),
                 #{memo},
                 #{salesman},
                 #{salesmanContact},
-                #{saleState.code},
-                #{used}
+                #{saleState}
             )
     </insert>
 

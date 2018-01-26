@@ -56,8 +56,7 @@
     <orderEntry type="library" name="Maven: org.apache.tiles:tiles-template:3.0.8" level="project" />
     <orderEntry type="library" name="Maven: org.apache.tiles:tiles-autotag-core-runtime:1.2" level="project" />
     <orderEntry type="library" name="Maven: org.apache.tiles:tiles-request-jsp:1.0.7" level="project" />
-    <orderEntry type="library" scope="PROVIDED" name="Maven: javax.servlet:servlet-api:2.5" level="project" />
-    <orderEntry type="library" scope="PROVIDED" name="Maven: javax.servlet.jsp:jsp-api:2.1" level="project" />
     <orderEntry type="library" name="Maven: jstl:jstl:1.2" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: javax.servlet:javax.servlet-api:4.0.0" level="project" />
   </component>
 </module>

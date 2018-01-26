@@ -12,11 +12,21 @@
 
     <link href="/css/bootstrap.min.css" rel="stylesheet">
     <link href="/font-awesome/css/font-awesome.css" rel="stylesheet">
+
+    <!-- FooTable -->
+    <link href="/css/plugins/footable/footable.core.css" rel="stylesheet">
+
+    <!-- SummerNote -->
     <link href="/css/plugins/summernote/summernote.css" rel="stylesheet">
     <link href="/css/plugins/summernote/summernote-bs3.css" rel="stylesheet">
+
+    <!-- DataPicker -->
     <link href="/css/plugins/datapicker/datepicker3.css" rel="stylesheet">
+
+    <!-- Slick -->
     <link href="/css/plugins/slick/slick.css" rel="stylesheet">
     <link href="/css/plugins/slick/slick-theme.css" rel="stylesheet">
+
     <link href="/css/animate.css" rel="stylesheet">
     <link href="/css/style.css" rel="stylesheet">
 
