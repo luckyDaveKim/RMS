@@ -8,20 +8,28 @@ import java.util.List;
 @Repository("landDao")
 public class LandDao extends BaseDao {
 
-    public LandVo selectLand(LandVo param) throws Exception {
-        return (LandVo) super.select("landDao.selectLand", param);
+    public LandVo selectLand(LandVo landVo) throws Exception {
+        return (LandVo) super.select("landDao.selectLand", landVo);
     }
 
-    public LandVo selectLandBySq(int code) throws Exception {
-        return (LandVo) super.select("landDao.selectLandBySq", code);
+    public List<LandVo> selectLandList(LandVo landVo) throws Exception {
+        return super.list("landDao.selectLandList", landVo);
     }
 
-    public List<LandVo> selectLandList(LandVo param) throws Exception {
-        return super.list("landDao.selectLandList", param);
+    public int insertLand(LandVo landVo) throws Exception {
+        return super.insert("landDao.insertLand", landVo);
     }
 
-    public int insertLand(LandVo param) throws Exception {
-        return super.insert("landDao.insertLand", param);
+    public int updateLand(LandVo landVo) throws Exception {
+        return super.update("landDao.updateLand", landVo);
+    }
+
+    public int updateLandSaleState(LandVo landVo) throws Exception {
+        return super.insert("landDao.updateLandSaleState", landVo);
+    }
+
+    public int deleteLand(LandVo landVo) throws Exception {
+        return super.insert("landDao.deleteLand", landVo);
     }
 
 }

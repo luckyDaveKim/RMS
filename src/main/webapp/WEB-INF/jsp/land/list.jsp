@@ -30,17 +30,17 @@
                     <table class="footable table table-stripped toggle-arrow-tiny" data-page-size="15">
                         <thead>
                         <tr>
-
                             <th data-toggle="true">매물구분</th>
+                            <th>가격</th>
                             <th>방수/욕실수</th>
                             <th data-hide="phone,tablet">주소</th>
                             <th>건물명</th>
-                            <th>호수</th>
+                            <th data-hide="phone">호수</th>
                             <th>해당층/총층</th>
+                            <th data-hide="phone,tablet">연락처</th>
                             <th data-hide="all">상세설명</th>
-                            <th data-hide="phone">연락처</th>
+                            <th data-hide="phone,tablet">수정일</th>
                             <th class="text-right">기능</th>
-
                         </tr>
                         </thead>
                         <tbody>
@@ -48,6 +48,9 @@
                             <tr>
                                 <td>
                                         ${landVo.saleType.description}
+                                </td>
+                                <td>
+                                        ${landVo.price}만원
                                 </td>
                                 <td>
                                         ${landVo.roomCount}/${landVo.bathroomCount}개
@@ -65,55 +68,26 @@
                                         ${landVo.floor}/${landVo.floorSize}층
                                 </td>
                                 <td>
+                                        ${landVo.salesmanContact}
+                                </td>
+                                <td>
                                         ${landVo.memo}
                                 </td>
                                 <td>
-                                        ${landVo.salesmanContact}
+                                        ${landVo.modificationDateTime}
                                 </td>
                                 <td class="text-right">
                                     <div class="btn-group">
-                                        <button class="btn-white btn btn-xs">상세보기</button>
-                                        <button class="btn-white btn btn-xs">수정</button>
+                                        <button class="btn-white btn btn-xs" onclick="location.href='/land/detail/${landVo.landSq}';">상세보기</button>
+                                        <button class="btn-white btn btn-xs" onclick="location.href='/land/edit/${landVo.landSq}';">수정</button>
                                     </div>
                                 </td>
                             </tr>
                         </c:forEach>
-                        <tr>
-                            <td>
-                                전세
-                            </td>
-                            <td>
-                                3/1개
-                            </td>
-                            <td>
-                                경기도 성남시 수정구
-                            </td>
-                            <td>
-                                시범빌라
-                            </td>
-                            <td>
-                                202호
-                            </td>
-                            <td>
-                                2/2층
-                            </td>
-                            <td>
-                                남향 로얄 수리된 좋은집
-                            </td>
-                            <td>
-                                010-1234-5678
-                            </td>
-                            <td class="text-right">
-                                <div class="btn-group">
-                                    <button class="btn-white btn btn-xs">상세보기</button>
-                                    <button class="btn-white btn btn-xs">수정</button>
-                                </div>
-                            </td>
-                        </tr>
                         </tbody>
                         <tfoot>
                         <tr>
-                            <td colspan="8">
+                            <td colspan="11">
                                 <ul class="pagination pull-right"></ul>
                             </td>
                         </tr>

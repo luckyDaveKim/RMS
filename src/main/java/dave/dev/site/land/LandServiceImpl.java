@@ -15,20 +15,28 @@ public class LandServiceImpl extends BaseService implements LandService {
     @Resource(name = "landDao")
     private LandDao landDao;
 
-    public LandVo selectLand(LandVo param) throws Exception {
-        return landDao.selectLand(param);
-    }
-
-    public LandVo selectLandBySq(int landSq) throws Exception {
-        return landDao.selectLandBySq(landSq);
+    public LandVo selectLand(LandVo landVo) throws Exception {
+        return landDao.selectLand(landVo);
     }
 
     public List<LandVo> selectLandList(LandVo landVo) throws Exception {
         return landDao.selectLandList(landVo);
     }
 
-    public int insertLand(LandVo param) throws Exception {
-        return landDao.insertLand(param);
+    public int updateLand(LandVo landVo) throws Exception {
+        return landDao.updateLand(landVo);
+    }
+
+    public int insertLand(LandVo landVo) throws Exception {
+        return landDao.insertLand(landVo);
+    }
+
+    public int updateLandSaleState(LandVo landVo) throws Exception {
+        return landDao.updateLandSaleState(landVo);
+    }
+
+    public int deleteLand(LandVo landVo) throws Exception {
+        return landDao.deleteLand(landVo);
     }
 
 }

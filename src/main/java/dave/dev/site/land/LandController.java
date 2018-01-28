@@ -27,7 +27,9 @@ public class LandController extends BaseController {
     /**
      * Land list string.
      *
+     * @param model the model
      * @return the string
+     * @throws Exception the exception
      */
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     public String showLandList(Model model) throws Exception {
@@ -49,12 +51,14 @@ public class LandController extends BaseController {
      */
     @RequestMapping(value = "/detail/{landSq}", method = RequestMethod.GET)
     public String showLandDetail(Model model, @PathVariable(value = "landSq") int landSq) throws Exception {
+        // land param 생성
+        LandVo param = new LandVo();
+        param.setLandSq(landSq);
+
         // land 정보 조회
-        LandVo landVo = landService.selectLandBySq(landSq);
+        LandVo landVo = landService.selectLand(param);
 
         model.addAttribute("landVo", landVo);
-
-        System.out.println("조회 : " + landSq);
 
         return "land/detail";
     }
@@ -97,17 +101,92 @@ public class LandController extends BaseController {
     /**
      * Show land edit string.
      *
+     * @param model  the model
      * @param landSq the land sq
      * @return the string
+     * @throws Exception the exception
      */
     @RequestMapping(value = "/edit/{landSq}", method = RequestMethod.GET)
     public String showLandEdit(Model model, @PathVariable(value = "landSq") int landSq) throws Exception {
+        // land param 생성
+        LandVo param = new LandVo();
+        param.setLandSq(landSq);
+
         // land 정보 조회
-        LandVo landVo = landService.selectLandBySq(landSq);
+        LandVo landVo = landService.selectLand(param);
 
         model.addAttribute("landVo", landVo);
 
         return "land/edit";
+    }
+
+    /**
+     * Edit land string.
+     *
+     * @param landVo the land vo
+     * @param landSq the land sq
+     * @return the string
+     * @throws Exception the exception
+     */
+    @RequestMapping(value = "/edit/{landSq}", method = RequestMethod.POST)
+    public String editLand(LandVo landVo, @PathVariable(value = "landSq") int landSq) throws Exception {
+        // landSq 삽입
+        landVo.setLandSq(landSq);
+
+        // land 정보 수정
+        landService.updateLand(landVo);
+
+        return String.format("redirect:/land/detail/%d", landVo.getLandSq());
+    }
+
+    @RequestMapping(value = "/delete/{landSq}", method = RequestMethod.POST)
+    public String deleteLand(LandVo landVo, @PathVariable(value = "landSq") int landSq) throws Exception {
+        // land param 생성
+        LandVo param = new LandVo();
+        param.setLandSq(landSq);
+
+        // land 삭제
+        landService.deleteLand(landVo);
+
+        return "redirect:/land/list";
+    }
+
+    /**
+     * Sell land string.
+     *
+     * @param landSq the land sq
+     * @return the string
+     * @throws Exception the exception
+     */
+    @RequestMapping(value = "/sale/{landSq}", method = RequestMethod.POST)
+    public String sellLand(@PathVariable(value = "landSq") int landSq) throws Exception {
+        LandVo param = new LandVo();
+        param.setLandSq(landSq);
+        param.setSaleState(LandVo.SaleState.SALE);
+
+        // land 정보 조회
+        landService.updateLandSaleState(param);
+
+        return String.format("redirect:/land/detail/%d", param.getLandSq());
+    }
+
+    /**
+     * Sell out land string.
+     *
+     * @param landSq the land sq
+     * @return the string
+     * @throws Exception the exception
+     */
+    @RequestMapping(value = "/sold-out/{landSq}", method = RequestMethod.POST)
+    public String sellOutLand(@PathVariable(value = "landSq") int landSq) throws Exception {
+        LandVo param = new LandVo();
+        param.setLandSq(landSq);
+        param.setSaleState(LandVo.SaleState.SOLD_OUT);
+
+        // land 정보 조회
+        landService.updateLandSaleState(param);
+
+        return String.format("redirect:/land/detail/%d", param.getLandSq());
     }
 
 }

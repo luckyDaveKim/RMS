@@ -10,20 +10,11 @@ public interface LandService {
     /**
      * Select land land vo.
      *
-     * @param param the param
+     * @param landVo the land vo
      * @return the land vo
      * @throws Exception the exception
      */
-    public LandVo selectLand(LandVo param) throws Exception;
-
-    /**
-     * Select land by sq land vo.
-     *
-     * @param landSq the land sq
-     * @return the land vo
-     * @throws Exception the exception
-     */
-    public LandVo selectLandBySq(int landSq) throws Exception;
+    public LandVo selectLand(LandVo landVo) throws Exception;
 
     /**
      * Select land list list.
@@ -35,12 +26,39 @@ public interface LandService {
     public List<LandVo> selectLandList(LandVo landVo) throws Exception;
 
     /**
-     * Insert land int.
+     * Update land int.
      *
-     * @param param the param
+     * @param landVo the land vo
      * @return the int
      * @throws Exception the exception
      */
-    public int insertLand(LandVo param) throws Exception;
+    public int updateLand(LandVo landVo) throws Exception;
+
+    /**
+     * Insert land int.
+     *
+     * @param landVo the land vo
+     * @return the int
+     * @throws Exception the exception
+     */
+    public int insertLand(LandVo landVo) throws Exception;
+
+    /**
+     * Update land sale state int.
+     *
+     * @param landVo the land vo
+     * @return the int
+     * @throws Exception the exception
+     */
+    public int updateLandSaleState(LandVo landVo) throws Exception;
+
+    /**
+     * Delete land int.
+     *
+     * @param landVo the land vo
+     * @return the int
+     * @throws Exception the exception
+     */
+    public int deleteLand(LandVo landVo) throws Exception;
 
 }

@@ -42,7 +42,7 @@
                                     </div>
                                     <div class="form-group"><label class="col-sm-2 control-label">면적:</label>
                                         <div class="col-sm-10"><input type="text" name="area" class="form-control"
-                                                                      placeholder="㎡"></div>
+                                                                      placeholder="평"></div>
                                     </div>
                                     <div class="form-group"><label class="col-sm-2 control-label">가격:</label>
                                         <div class="col-sm-10"><input type="text" name="price" class="form-control"
@@ -267,7 +267,7 @@
         });
 
         $('.input-group.date').datepicker({
-            format: 'yyyy/mm/dd',
+            format: 'yyyy-mm-dd',
             todayBtn: 'linked',
             keyboardNavigation: false,
             forceParse: false,

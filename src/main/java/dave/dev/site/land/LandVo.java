@@ -1,6 +1,7 @@
 package dave.dev.site.land;
 
 import dave.dev.com.base.BaseVo;
+import dave.dev.com.enums.NoYes;
 
 /**
  * The type Land vo.
@@ -11,8 +12,17 @@ public class LandVo extends BaseVo {
      * The enum Sale type.
      */
     public enum SaleType {
+        /**
+         * Buy sale type.
+         */
         BUY(1, "매매"),
+        /**
+         * Lease sale type.
+         */
         LEASE(2, "전세"),
+        /**
+         * Rent sale type.
+         */
         RENT(3, "월세");
 
         private final int code;
@@ -46,7 +56,13 @@ public class LandVo extends BaseVo {
      * The enum Sale state.
      */
     public enum SaleState {
+        /**
+         * Sale sale state.
+         */
         SALE(1, "판매중"),
+        /**
+         * Sold out sale state.
+         */
         SOLD_OUT(2, "판매완료");
 
         private final int code;
@@ -80,7 +96,7 @@ public class LandVo extends BaseVo {
     private SaleType saleType;          // 매물 구분
     private String address;             // 주소
     private String buildingName;        // 건물명
-    private int buildingNumber;         // 호수
+    private String buildingNumber;      // 호수
     private float area;                 // 면적
     private int price;                  // 가격
     private int floor;                  // 해당층
@@ -96,10 +112,20 @@ public class LandVo extends BaseVo {
     private SaleState saleState;        // 판매 상태
     private byte[] images;              // 이미지
 
+    /**
+     * Gets land sq.
+     *
+     * @return the land sq
+     */
     public int getLandSq() {
         return landSq;
     }
 
+    /**
+     * Sets land sq.
+     *
+     * @param landSq the land sq
+     */
     public void setLandSq(Integer landSq) {
         this.landSq = (landSq == null || landSq < 0) ? 0 : landSq;
     }
@@ -158,12 +184,22 @@ public class LandVo extends BaseVo {
         this.buildingName = buildingName;
     }
 
-    public int getBuildingNumber() {
+    /**
+     * Gets building number.
+     *
+     * @return the building number
+     */
+    public String getBuildingNumber() {
         return buildingNumber;
     }
 
-    public void setBuildingNumber(Integer buildingNumber) {
-        this.buildingNumber = (buildingNumber == null || buildingNumber <= 0) ? 1 : buildingNumber;
+    /**
+     * Sets building number.
+     *
+     * @param buildingNumber the building number
+     */
+    public void setBuildingNumber(String buildingNumber) {
+        this.buildingNumber = buildingNumber;
     }
 
     /**
@@ -202,18 +238,38 @@ public class LandVo extends BaseVo {
         this.area = (area == null || area <= 0) ? 1 : area;
     }
 
+    /**
+     * Gets floor.
+     *
+     * @return the floor
+     */
     public int getFloor() {
         return floor;
     }
 
+    /**
+     * Sets floor.
+     *
+     * @param floor the floor
+     */
     public void setFloor(Integer floor) {
         this.floor = (floor == null || floor <= 0) ? 1 : floor;
     }
 
+    /**
+     * Gets floor size.
+     *
+     * @return the floor size
+     */
     public int getFloorSize() {
         return floorSize;
     }
 
+    /**
+     * Sets floor size.
+     *
+     * @param floorSize the floor size
+     */
     public void setFloorSize(Integer floorSize) {
         this.floorSize = (floorSize == null || floorSize < 0) ? 0 : floorSize;
     }

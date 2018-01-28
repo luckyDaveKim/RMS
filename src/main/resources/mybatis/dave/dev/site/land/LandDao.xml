@@ -3,33 +3,46 @@
 
 <mapper namespace="landDao">
 
-    <select id="selectLand" parameterType="LandVo" resultType="LandVo">
-        <![CDATA[
-        SELECT *
-        FROM    LANDS
-        WHERE   LAND_SQ = #{landSq}
-        ]]>
-    </select>
+    <sql id="selectedLand">
+        LAND_SQ,
+        SALE_TYPE,
+        ADDRESS,
+        BUILDING_NAME,
+        BUILDING_NUMBER,
+        AREA,
+        PRICE,
+        FLOOR,
+        FLOOR_SIZE,
+        ROOM_COUNT,
+        BATHROOM_COUNT,
+        LIVEABLE_DATE,
+        MEMO,
+        SALESMAN,
+        SALESMAN_CONTACT,
+        DATE_FORMAT(CREATION_DATETIME, '%Y-%m-%d %H:%i:%s') AS CREATION_DATETIME,
+        DATE_FORMAT(MODIFICATION_DATETIME, '%Y-%m-%d %H:%i:%s') AS MODIFICATION_DATETIME,
+        SALE_STATE
+    </sql>
 
-    <select id="selectLandBySq" parameterType="int" resultType="LandVo">
-        <![CDATA[
-        SELECT *
-        FROM    LANDS
-        WHERE   LAND_SQ = #{landSq}
-        ]]>
+    <select id="selectLand" parameterType="LandVo" resultType="LandVo">
+        /* landDao.selectLand */
+        SELECT <include refid="selectedLand" />
+        FROM LANDS
+        WHERE LAND_SQ = #{landSq}
     </select>
 
     <select id="selectLandList" parameterType="LandVo" resultType="LandVo">
-        <![CDATA[
-        SELECT *
+        /* landDao.selectLandList */
+        SELECT <include refid="selectedLand" />
         FROM    LANDS
         WHERE   SALE_STATE = "SALE"
-        ]]>
+        ORDER BY MODIFICATION_DATETIME DESC
     </select>
     <!--TODO : enum 을 통한 where 조건절 삽입 방법???
     WHERE   SALE_STATE = #{saleState}-->
 
     <insert id="insertLand" parameterType="LandVo" useGeneratedKeys="true" keyProperty="landSq" keyColumn="LAND_SQ">
+        /* landDao.insertLand */
         INSERT INTO LANDS
             (
                 SALE_TYPE,
@@ -67,5 +80,40 @@
                 #{saleState}
             )
     </insert>
+
+    <update id="updateLand" parameterType="LandVo">
+        /* landDao.insertLand */
+        UPDATE LANDS
+        SET
+            SALE_TYPE = #{saleType},
+            ADDRESS = #{address},
+            BUILDING_NAME = #{buildingName},
+            BUILDING_NUMBER = #{buildingNumber},
+            AREA = #{area},
+            PRICE = #{price},
+            FLOOR = #{floor},
+            FLOOR_SIZE = #{floorSize},
+            ROOM_COUNT = #{roomCount},
+            BATHROOM_COUNT = #{bathroomCount},
+            LIVEABLE_DATE = STR_TO_DATE(#{liveableDate}, '%Y-%m-%d'),
+            MEMO = #{memo},
+            SALESMAN = #{salesman},
+            SALESMAN_CONTACT = #{salesmanContact},
+            MODIFICATION_DATETIME = NOW()
+        WHERE LAND_SQ = #{landSq}
+    </update>
+
+    <update id="updateLandSaleState" parameterType="LandVo">
+        /* landDao.updateLandSaleState */
+        UPDATE LANDS
+        SET SALE_STATE = #{saleState}
+        WHERE LAND_SQ = #{landSq}
+    </update>
+
+    <delete id="deleteLand" parameterType="LandVo">
+        /* landDao.deleteLand */
+        DELETE FROM LANDS
+        WHERE LAND_SQ = #{landSq}
+    </delete>
 
 </mapper>

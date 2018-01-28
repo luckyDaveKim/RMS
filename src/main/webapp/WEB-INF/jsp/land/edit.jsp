@@ -5,7 +5,7 @@
 
     <div class="row">
         <div class="col-lg-12">
-            <form action="/land/create" method="post">
+            <form action="/land/edit/${landVo.landSq}" method="post">
                 <div class="tabs-container">
                     <ul class="nav nav-tabs">
                         <li class="active"><a data-toggle="tab" href="#tab-1">매물 정보</a></li>
@@ -45,7 +45,7 @@
                                     </div>
                                     <div class="form-group"><label class="col-sm-2 control-label">면적:</label>
                                         <div class="col-sm-10"><input type="text" name="area" class="form-control"
-                                                                      value="${landVo.area}" placeholder="㎡"></div>
+                                                                      value="${landVo.area}" placeholder="평"></div>
                                     </div>
                                     <div class="form-group"><label class="col-sm-2 control-label">가격:</label>
                                         <div class="col-sm-10"><input type="text" name="price" class="form-control"
@@ -272,7 +272,7 @@
         });
 
         $('.input-group.date').datepicker({
-            format: 'yyyy/mm/dd',
+            format: 'yyyy-mm-dd',
             todayBtn: 'linked',
             keyboardNavigation: false,
             forceParse: false,
