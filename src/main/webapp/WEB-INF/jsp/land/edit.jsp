@@ -259,7 +259,7 @@
                 </div>
                 <div class="pull-right">
                     <button class="btn btn-default" type="button" onclick="location.href='/land/list';"><i class="fa fa-ban"></i>&nbsp;취소</button>
-                    <button class="btn btn-primary" type="submit"><i class="fa fa-check"></i>&nbsp;등록</button>
+                    <button class="btn btn-primary" type="submit"><i class="fa fa-check"></i>&nbsp;수정</button>
                 </div>
             </form>
         </div>
@@ -289,6 +289,9 @@
 <!-- Jquery Validate -->
 <script src="/js/plugins/validate/jquery.validate.min.js"></script>
 
+<!-- Sweet alert2 -->
+<script src="/js/plugins/sweetalert2/sweetalert2.min.js"></script>
+
 <script>
     $(document).ready(function () {
 
@@ -308,8 +311,8 @@
         // 매물 구분 설정
         $('#saleTypeSelect').val('${landVo.saleType}');
 
-        $("#form").validate({
-            ignore: "", // tabs로인해 숨겨진 필드도 체크하기 위해
+        $('#form').validate({
+            ignore: '', // tabs로인해 숨겨진 필드도 체크하기 위해
             rules: { // form 규칙
                 saleType: {
                     required: true,
@@ -396,12 +399,12 @@
                     range: '0 ~ 100,000 범위만 입력 가능합니다.'
                 },
                 bathroomCount: {
-                    required: '욕실 개수를 입력해야 합니다..',
+                    required: '욕실 개수를 입력해야 합니다.',
                     digits: '정수만 입력 가능합니다.',
                     range: '0 ~ 100,000 범위만 입력 가능합니다.'
                 },
                 liveableDate: {
-                    required: '입주가능일을 입력해야 합니다..',
+                    required: '입주가능일을 입력해야 합니다.',
                     dateISO: '날짜가 올바르지 않습니다.'
                 },
                 memo: {
@@ -416,8 +419,14 @@
             }, invalidHandler: function (form, validator) {
                 var errors = validator.numberOfInvalids();
                 if (errors) {
-                    alert(validator.errorList[0].message);
-                    validator.errorList[0].element.focus();
+                    swal({
+                        title: '입력값이 올바르지 않습니다!',
+                        text: validator.errorList[0].message,
+                        type: 'warning',
+                        confirmButtonText: '확인'
+                    }).then(function (result) {
+                        validator.errorList[0].element.focus();
+                    });
                 }
             }
         });

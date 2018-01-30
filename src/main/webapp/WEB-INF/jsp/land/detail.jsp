@@ -105,7 +105,7 @@
                                             class="fa fa-pencil"></i> 수정
                                     </button>
                                     <button class="btn btn-white btn-sm"
-                                            onclick="deleteLand();"><i
+                                            onclick="checkDeleteLand();"><i
                                             class="fa fa-trash"></i> 삭제
                                     </button>
                                     <button class="btn btn-white btn-sm" onclick="location.href='/land/list';"><i
@@ -145,9 +145,11 @@
 <!-- slick carousel-->
 <script src="/js/plugins/slick/slick.min.js"></script>
 
+<!-- Sweet alert2 -->
+<script src="/js/plugins/sweetalert2/sweetalert2.min.js"></script>
+
 <script>
     $(document).ready(function () {
-
 
         $('.product-images').slick({
             dots: true
@@ -158,49 +160,71 @@
     var sellOutLand = function () {
             var form = document.createElement('form'),
                 landSqInput = document.createElement('input'),
-                landSq = ${landVo.landSq};
+                landSq = null;
+
+            landSq = ${landVo.landSq};
 
             form.setAttribute('action', '/land/sold-out/' + landSq);
             form.setAttribute('method', 'post');
+            document.body.appendChild(form);
 
             landSqInput.setAttribute('type', 'hidden');
             landSqInput.setAttribute('name', 'landSq');
             landSqInput.setAttribute('value', landSq);
-
-            document.body.appendChild(form);
             form.appendChild(landSqInput);
+
             form.submit();
         },
         sellLand = function () {
             var form = document.createElement('form'),
                 landSqInput = document.createElement('input'),
-                landSq = ${landVo.landSq};
+                landSq = null;
+
+            landSq = ${landVo.landSq};
 
             form.setAttribute('action', '/land/sell/' + landSq);
             form.setAttribute('method', 'post');
+            document.body.appendChild(form);
 
             landSqInput.setAttribute('type', 'hidden');
             landSqInput.setAttribute('name', 'landSq');
             landSqInput.setAttribute('value', landSq);
-
-            document.body.appendChild(form);
             form.appendChild(landSqInput);
+
             form.submit();
+        },
+        checkDeleteLand = function () {
+            swal({
+                title: '매물 삭제',
+                text: '현재 매물 데이터는 삭제되며 복구할 수 없습니다. 계속 진행하시겠습니까?',
+                type: 'warning',
+                reverseButtons: true,
+                showCancelButton: true,
+                cancelButtonText: '취소',
+                confirmButtonText: '매물 삭제',
+                confirmButtonColor: '#d33'
+            }).then(function (result) {
+                if (result.value) {
+                    deleteLand();
+                }
+            });
         },
         deleteLand = function () {
             var form = document.createElement('form'),
                 landSqInput = document.createElement('input'),
-                landSq = ${landVo.landSq};
+                landSq = null;
+
+            landSq = ${landVo.landSq};
 
             form.setAttribute('action', '/land/delete/' + landSq);
             form.setAttribute('method', 'post');
+            document.body.appendChild(form);
 
             landSqInput.setAttribute('type', 'hidden');
             landSqInput.setAttribute('name', 'landSq');
             landSqInput.setAttribute('value', landSq);
-
-            document.body.appendChild(form);
             form.appendChild(landSqInput);
+
             form.submit();
         };
 </script>
