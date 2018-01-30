@@ -1,6 +1,23 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-10">
+        <h2>매물</h2>
+        <ol class="breadcrumb">
+            <li>
+                <a href="/">홈</a>
+            </li>
+            <li>
+                <a href="/land/list">매물</a>
+            </li>
+            <li class="active">
+                <strong>상세보기</strong>
+            </li>
+        </ol>
+    </div>
+</div>
+
 <div class="wrapper wrapper-content animated fadeInRight">
 
     <div class="row">

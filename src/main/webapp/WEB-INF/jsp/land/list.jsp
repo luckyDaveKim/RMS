@@ -15,7 +15,7 @@
     </div>
     <div class="col-sm-8">
         <div class="title-action">
-            <a href="/land/create" class="btn btn-primary btn-sm">매물 추가</a>
+            <a href="/land/create" class="btn btn-primary btn-sm">매물 등록</a>
         </div>
     </div>
 </div>

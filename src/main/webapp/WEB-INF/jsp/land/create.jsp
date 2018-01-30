@@ -1,11 +1,28 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-10">
+        <h2>매물</h2>
+        <ol class="breadcrumb">
+            <li>
+                <a href="/">홈</a>
+            </li>
+            <li>
+                <a href="/land/list">매물</a>
+            </li>
+            <li class="active">
+                <strong>매물 등록</strong>
+            </li>
+        </ol>
+    </div>
+</div>
+
 <div class="wrapper wrapper-content animated fadeInRight ecommerce">
 
     <div class="row">
         <div class="col-lg-12">
-            <form action="/land/create" method="post">
+            <form id="form" action="/land/create" method="post">
                 <div class="tabs-container">
                     <ul class="nav nav-tabs">
                         <li class="active"><a data-toggle="tab" href="#tab-1">매물 정보</a></li>
@@ -235,13 +252,17 @@
                         </div>
                     </div>
                 </div>
-                <button>보내자</button>
+                <div class="pull-right">
+                    <button class="btn btn-default" type="button" onclick="location.href='/land/list';"><i
+                            class="fa fa-ban"></i>&nbsp;취소
+                    </button>
+                    <button class="btn btn-primary" type="submit"><i class="fa fa-check"></i>&nbsp;등록</button>
+                </div>
             </form>
         </div>
     </div>
 
 </div>
-
 
 <!-- Mainly scripts -->
 <script src="/js/jquery-2.1.1.js"></script>
@@ -253,11 +274,16 @@
 <script src="/js/inspinia.js"></script>
 <script src="/js/plugins/pace/pace.min.js"></script>
 
+<script src="/js/plugins/jquery-ui/jquery-ui.min.js"></script>
+
 <!-- SUMMERNOTE -->
 <script src="/js/plugins/summernote/summernote.min.js"></script>
 
 <!-- Data picker -->
 <script src="/js/plugins/datapicker/bootstrap-datepicker.js"></script>
+
+<!-- Jquery Validate -->
+<script src="/js/plugins/validate/jquery.validate.min.js"></script>
 
 <script>
     $(document).ready(function () {
@@ -275,5 +301,118 @@
             autoclose: true
         });
 
+        $("#form").validate({
+            ignore: "", // tabs로인해 숨겨진 필드도 체크하기 위해
+            rules: { // form 규칙
+                saleType: {
+                    required: true,
+                    maxlength: 100
+                },
+                address: {
+                    required: true,
+                    maxlength: 500
+                },
+                buildingName: {
+                    required: true,
+                    maxlength: 100
+                },
+                buildingNumber: {
+                    required: true,
+                    maxlength: 100
+                },
+                area: {
+                    required: true,
+                    number: true,
+                    range: [0, 100000],
+                    step: 0.1
+                },
+                price: {
+                    required: true,
+                    digits: true,
+                    range: [0, 100000]
+                },
+                roomCount: {
+                    required: true,
+                    digits: true,
+                    range: [0, 100000]
+                },
+                bathroomCount: {
+                    required: true,
+                    digits: true,
+                    range: [0, 100000]
+                },
+                liveableDate: {
+                    required: true,
+                    dateISO: true
+                },
+                memo: {
+                    maxlength: 4000
+                },
+                salesman: {
+                    maxlength: 100
+                },
+                salesmanContact: {
+                    maxlength: 100
+                }
+            },
+            messages: { // 규칙 체크 실패시 출력 메시지
+                saleType: {
+                    required: '매물구분을 선택해야 합니다.',
+                    maxlength: '잘못된 데이터입니다.'
+                },
+                address: {
+                    required: '주소를 입력해야 합니다.',
+                    maxlength: '500자 까지 입력 가능합니다.'
+                },
+                buildingName: {
+                    required: '건물명을 입력해야 합니다.',
+                    maxlength: '100자 까지 입력 가능합니다.'
+                },
+                buildingNumber: {
+                    required: '호수를 입력해야 합니다.',
+                    maxlength: '100자 까지 입력 가능합니다.'
+                },
+                area: {
+                    required: '면적을 입력해야 합니다.',
+                    number: '숫자만 입력 가능합니다.',
+                    range: '0 ~ 100,000 범위만 입력 가능합니다.',
+                    step: '소수점 한자리까지 입력 가능합니다.'
+                },
+                price: {
+                    required: '가격을 입력해야 합니다.',
+                    digits: '정수만 입력 가능합니다.',
+                    range: '0 ~ 100,000 범위만 입력 가능합니다.'
+                },
+                roomCount: {
+                    required: '방 개수를 입력해야 합니다.',
+                    digits: '정수만 입력 가능합니다.',
+                    range: '0 ~ 100,000 범위만 입력 가능합니다.'
+                },
+                bathroomCount: {
+                    required: '욕실 개수를 입력해야 합니다..',
+                    digits: '정수만 입력 가능합니다.',
+                    range: '0 ~ 100,000 범위만 입력 가능합니다.'
+                },
+                liveableDate: {
+                    required: '입주가능일을 입력해야 합니다..',
+                    dateISO: '날짜가 올바르지 않습니다.'
+                },
+                memo: {
+                    maxlength: '4,000자 까지 입력 가능합니다.'
+                },
+                salesman: {
+                    maxlength: '100자 까지 입력 가능합니다.'
+                },
+                salesmanContact: {
+                    maxlength: '100자 까지 입력 가능합니다.'
+                }
+            }, invalidHandler: function (form, validator) {
+                var errors = validator.numberOfInvalids();
+                if (errors) {
+                    alert(validator.errorList[0].message);
+                    validator.errorList[0].element.focus();
+                }
+            }
+        });
     });
 </script>
