@@ -41,6 +41,39 @@
     <!--TODO : enum 을 통한 where 조건절 삽입 방법???
     WHERE   SALE_STATE = #{saleState}-->
 
+    <select id="selectBoughtLandList" parameterType="LandVo" resultType="LandVo">
+        /* landDao.selectBoughtLandList */
+        SELECT <include refid="selectedLand" />
+        FROM    LANDS
+        WHERE   SALE_STATE = "SALE"
+                AND SALE_TYPE = "BUY"
+        ORDER BY MODIFICATION_DATETIME DESC
+    </select>
+    <!--TODO : enum 을 통한 where 조건절 삽입 방법???
+    WHERE   SALE_STATE = #{saleState}-->
+
+    <select id="selectLeasedLandList" parameterType="LandVo" resultType="LandVo">
+        /* landDao.selectLeasedLandList */
+        SELECT <include refid="selectedLand" />
+        FROM    LANDS
+        WHERE   SALE_STATE = "SALE"
+                AND SALE_TYPE = "LEASE"
+        ORDER BY MODIFICATION_DATETIME DESC
+    </select>
+    <!--TODO : enum 을 통한 where 조건절 삽입 방법???
+    WHERE   SALE_STATE = #{saleState}-->
+
+    <select id="selectRentedLandList" parameterType="LandVo" resultType="LandVo">
+        /* landDao.selectRentedLandList */
+        SELECT <include refid="selectedLand" />
+        FROM    LANDS
+        WHERE   SALE_STATE = "SALE"
+                AND SALE_TYPE = "RENT"
+        ORDER BY MODIFICATION_DATETIME DESC
+    </select>
+    <!--TODO : enum 을 통한 where 조건절 삽입 방법???
+    WHERE   SALE_STATE = #{saleState}-->
+
     <insert id="insertLand" parameterType="LandVo" useGeneratedKeys="true" keyProperty="landSq" keyColumn="LAND_SQ">
         /* landDao.insertLand */
         INSERT INTO LANDS

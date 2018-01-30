@@ -4,6 +4,8 @@ import java.util.List;
 
 /**
  * The interface Paging condition.
+ *
+ * @param <T> the type parameter
  */
 public interface PagingCondition<T> {
 

@@ -3,7 +3,7 @@
 
 <div class="row wrapper border-bottom white-bg page-heading">
     <div class="col-lg-10">
-        <h2>매물</h2>
+        <h2>매물 상세보기</h2>
         <ol class="breadcrumb">
             <li>
                 <a href="/">홈</a>
@@ -12,7 +12,7 @@
                 <a href="/land/list">매물</a>
             </li>
             <li class="active">
-                <strong>상세보기</strong>
+                <strong>매물 상세보기</strong>
             </li>
         </ol>
     </div>
@@ -28,7 +28,6 @@
 
                     <div class="row">
                         <div class="col-md-5">
-
 
                             <div class="product-images">
 

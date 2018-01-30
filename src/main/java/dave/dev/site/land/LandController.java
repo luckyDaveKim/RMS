@@ -33,12 +33,67 @@ public class LandController extends BaseController {
      */
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     public String showLandList(Model model) throws Exception {
-        // land list 조회
-        List<LandVo> landVos = landService.selectLandList(new LandVo());
+        // 매매 리스트 조회
+        List<LandVo> boughtLandVos = landService.selectBoughtLandList(new LandVo());
+        model.addAttribute("boughtLandVos", boughtLandVos);
 
-        model.addAttribute("landVos", landVos);
+        // 전세 리스트 조회
+        List<LandVo> leasedLandVos = landService.selectLeasedLandList(new LandVo());
+        model.addAttribute("leasedLandVos", leasedLandVos);
+
+        // 월세 리스트 조회
+        List<LandVo> rentedLandVos = landService.selectRentedLandList(new LandVo());
+        model.addAttribute("rentedLandVos", rentedLandVos);
 
         return "land/list";
+    }
+
+    /**
+     * Show bought land list string.
+     *
+     * @param model the model
+     * @return the string
+     * @throws Exception the exception
+     */
+    @RequestMapping(value = "/bought-list", method = RequestMethod.GET)
+    public String showBoughtLandList(Model model) throws Exception {
+        // 매매 리스트 조회
+        List<LandVo> boughtLandVos = landService.selectBoughtLandList(new LandVo());
+        model.addAttribute("boughtLandVos", boughtLandVos);
+
+        return "land/bought-list";
+    }
+
+    /**
+     * Show leased land list string.
+     *
+     * @param model the model
+     * @return the string
+     * @throws Exception the exception
+     */
+    @RequestMapping(value = "/leased-list", method = RequestMethod.GET)
+    public String showLeasedLandList(Model model) throws Exception {
+        // 전세 리스트 조회
+        List<LandVo> leasedLandVos = landService.selectLeasedLandList(new LandVo());
+        model.addAttribute("leasedLandVos", leasedLandVos);
+
+        return "land/leased-list";
+    }
+
+    /**
+     * Show rented land list string.
+     *
+     * @param model the model
+     * @return the string
+     * @throws Exception the exception
+     */
+    @RequestMapping(value = "/rented-list", method = RequestMethod.GET)
+    public String showRentedLandList(Model model) throws Exception {
+        // 월세 리스트 조회
+        List<LandVo> rentedLandVos = landService.selectRentedLandList(new LandVo());
+        model.addAttribute("rentedLandVos", rentedLandVos);
+
+        return "land/rented-list";
     }
 
     /**
@@ -139,6 +194,14 @@ public class LandController extends BaseController {
         return String.format("redirect:/land/detail/%d", landVo.getLandSq());
     }
 
+    /**
+     * Delete land string.
+     *
+     * @param landVo the land vo
+     * @param landSq the land sq
+     * @return the string
+     * @throws Exception the exception
+     */
     @RequestMapping(value = "/delete/{landSq}", method = RequestMethod.POST)
     public String deleteLand(LandVo landVo, @PathVariable(value = "landSq") int landSq) throws Exception {
         // land param 생성

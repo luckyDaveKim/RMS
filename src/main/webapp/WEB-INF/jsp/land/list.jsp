@@ -3,13 +3,16 @@
 
 <div class="row wrapper border-bottom white-bg page-heading">
     <div class="col-sm-4">
-        <h2>매물</h2>
+        <h2>전체</h2>
         <ol class="breadcrumb">
             <li>
                 <a href="index.html">홈</a>
             </li>
+            <li>
+                <a href="/land/list">매물</a>
+            </li>
             <li class="active">
-                <strong>매물</strong>
+                <strong>전체</strong>
             </li>
         </ol>
     </div>
@@ -25,6 +28,17 @@
     <div class="row">
         <div class="col-lg-12">
             <div class="ibox">
+                <div class="ibox-title">
+                    <h5>월세 <small>매물</small></h5>
+                    <div class="ibox-tools">
+                        <a class="collapse-link">
+                            <i class="fa fa-chevron-up"></i>
+                        </a>
+                        <a href="/land/rented-list">
+                            <i class="fa fa-plus"></i>
+                        </a>
+                    </div>
+                </div>
                 <div class="ibox-content">
 
                     <table class="footable table table-stripped toggle-arrow-tiny" data-page-size="15">
@@ -44,42 +58,218 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <c:forEach var="landVo" items="${landVos}">
+                        <c:forEach var="rentedLandVo" items="${rentedLandVos}">
                             <tr>
                                 <td>
-                                        ${landVo.saleType.description}
+                                        ${rentedLandVo.saleType.description}
                                 </td>
                                 <td>
-                                        ${landVo.price}만원
+                                        ${rentedLandVo.price}만원
                                 </td>
                                 <td>
-                                        ${landVo.roomCount}/${landVo.bathroomCount}개
+                                        ${rentedLandVo.roomCount}/${rentedLandVo.bathroomCount}개
                                 </td>
                                 <td>
-                                        ${landVo.address}
+                                        ${rentedLandVo.address}
                                 </td>
                                 <td>
-                                        ${landVo.buildingName}
+                                        ${rentedLandVo.buildingName}
                                 </td>
                                 <td>
-                                        ${landVo.buildingNumber}호
+                                        ${rentedLandVo.buildingNumber}호
                                 </td>
                                 <td>
-                                        ${landVo.floor}/${landVo.floorSize}층
+                                        ${rentedLandVo.floor}/${rentedLandVo.floorSize}층
                                 </td>
                                 <td>
-                                        ${landVo.salesmanContact}
+                                        ${rentedLandVo.salesmanContact}
                                 </td>
                                 <td>
-                                        ${landVo.memo}
+                                        ${rentedLandVo.memo}
                                 </td>
                                 <td>
-                                        ${landVo.modificationDateTime}
+                                        ${rentedLandVo.modificationDateTime}
                                 </td>
                                 <td class="text-right">
                                     <div class="btn-group">
-                                        <button class="btn-white btn btn-xs" onclick="location.href='/land/detail/${landVo.landSq}';">상세보기</button>
-                                        <button class="btn-white btn btn-xs" onclick="location.href='/land/edit/${landVo.landSq}';">수정</button>
+                                        <button class="btn-white btn btn-xs" onclick="location.href='/land/detail/${rentedLandVo.landSq}';">상세보기</button>
+                                        <button class="btn-white btn btn-xs" onclick="location.href='/land/edit/${rentedLandVo.landSq}';">수정</button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </c:forEach>
+                        </tbody>
+                        <tfoot>
+                        <tr>
+                            <td colspan="11">
+                                <ul class="pagination pull-right"></ul>
+                            </td>
+                        </tr>
+                        </tfoot>
+                    </table>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox">
+                <div class="ibox-title">
+                    <h5>전세 <small>매물</small></h5>
+                    <div class="ibox-tools">
+                        <a class="collapse-link">
+                            <i class="fa fa-chevron-up"></i>
+                        </a>
+                        <a href="/land/leased-list">
+                            <i class="fa fa-plus"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="ibox-content">
+
+                    <table class="footable table table-stripped toggle-arrow-tiny" data-page-size="15">
+                        <thead>
+                        <tr>
+                            <th data-toggle="true">매물구분</th>
+                            <th>가격</th>
+                            <th>방수/욕실수</th>
+                            <th data-hide="phone,tablet">주소</th>
+                            <th>건물명</th>
+                            <th data-hide="phone">호수</th>
+                            <th>해당층/총층</th>
+                            <th data-hide="phone,tablet">연락처</th>
+                            <th data-hide="all">상세설명</th>
+                            <th data-hide="phone,tablet">수정일</th>
+                            <th class="text-right">기능</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <c:forEach var="leasedLandVo" items="${leasedLandVos}">
+                            <tr>
+                                <td>
+                                        ${leasedLandVo.saleType.description}
+                                </td>
+                                <td>
+                                        ${leasedLandVo.price}만원
+                                </td>
+                                <td>
+                                        ${leasedLandVo.roomCount}/${leasedLandVo.bathroomCount}개
+                                </td>
+                                <td>
+                                        ${leasedLandVo.address}
+                                </td>
+                                <td>
+                                        ${leasedLandVo.buildingName}
+                                </td>
+                                <td>
+                                        ${leasedLandVo.buildingNumber}호
+                                </td>
+                                <td>
+                                        ${leasedLandVo.floor}/${leasedLandVo.floorSize}층
+                                </td>
+                                <td>
+                                        ${leasedLandVo.salesmanContact}
+                                </td>
+                                <td>
+                                        ${leasedLandVo.memo}
+                                </td>
+                                <td>
+                                        ${leasedLandVo.modificationDateTime}
+                                </td>
+                                <td class="text-right">
+                                    <div class="btn-group">
+                                        <button class="btn-white btn btn-xs" onclick="location.href='/land/detail/${leasedLandVo.landSq}';">상세보기</button>
+                                        <button class="btn-white btn btn-xs" onclick="location.href='/land/edit/${leasedLandVo.landSq}';">수정</button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </c:forEach>
+                        </tbody>
+                        <tfoot>
+                        <tr>
+                            <td colspan="11">
+                                <ul class="pagination pull-right"></ul>
+                            </td>
+                        </tr>
+                        </tfoot>
+                    </table>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox">
+                <div class="ibox-title">
+                    <h5>매매 <small>매물</small></h5>
+                    <div class="ibox-tools">
+                        <a class="collapse-link">
+                            <i class="fa fa-chevron-up"></i>
+                        </a>
+                        <a href="/land/bought-list">
+                            <i class="fa fa-plus"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="ibox-content">
+
+                    <table class="footable table table-stripped toggle-arrow-tiny" data-page-size="15">
+                        <thead>
+                        <tr>
+                            <th data-toggle="true">매물구분</th>
+                            <th>가격</th>
+                            <th>방수/욕실수</th>
+                            <th data-hide="phone,tablet">주소</th>
+                            <th>건물명</th>
+                            <th data-hide="phone">호수</th>
+                            <th>해당층/총층</th>
+                            <th data-hide="phone,tablet">연락처</th>
+                            <th data-hide="all">상세설명</th>
+                            <th data-hide="phone,tablet">수정일</th>
+                            <th class="text-right">기능</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <c:forEach var="boughtLandVo" items="${boughtLandVos}">
+                            <tr>
+                                <td>
+                                        ${boughtLandVo.saleType.description}
+                                </td>
+                                <td>
+                                        ${boughtLandVo.price}만원
+                                </td>
+                                <td>
+                                        ${boughtLandVo.roomCount}/${boughtLandVo.bathroomCount}개
+                                </td>
+                                <td>
+                                        ${boughtLandVo.address}
+                                </td>
+                                <td>
+                                        ${boughtLandVo.buildingName}
+                                </td>
+                                <td>
+                                        ${boughtLandVo.buildingNumber}호
+                                </td>
+                                <td>
+                                        ${boughtLandVo.floor}/${boughtLandVo.floorSize}층
+                                </td>
+                                <td>
+                                        ${boughtLandVo.salesmanContact}
+                                </td>
+                                <td>
+                                        ${boughtLandVo.memo}
+                                </td>
+                                <td>
+                                        ${boughtLandVo.modificationDateTime}
+                                </td>
+                                <td class="text-right">
+                                    <div class="btn-group">
+                                        <button class="btn-white btn btn-xs" onclick="location.href='/land/detail/${boughtLandVo.landSq}';">상세보기</button>
+                                        <button class="btn-white btn btn-xs" onclick="location.href='/land/edit/${boughtLandVo.landSq}';">수정</button>
                                     </div>
                                 </td>
                             </tr>

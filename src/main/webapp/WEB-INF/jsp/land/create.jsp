@@ -3,7 +3,7 @@
 
 <div class="row wrapper border-bottom white-bg page-heading">
     <div class="col-lg-10">
-        <h2>매물</h2>
+        <h2>매물 등록</h2>
         <ol class="breadcrumb">
             <li>
                 <a href="/">홈</a>
@@ -417,7 +417,7 @@
                         text: validator.errorList[0].message,
                         type: 'warning',
                         confirmButtonText: '확인'
-                    }).then(function (result) {
+                    }).then(function () {
                         validator.errorList[0].element.focus();
                     });
                 }

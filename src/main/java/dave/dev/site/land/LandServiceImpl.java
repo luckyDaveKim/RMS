@@ -23,6 +23,18 @@ public class LandServiceImpl extends BaseService implements LandService {
         return landDao.selectLandList(landVo);
     }
 
+    public List<LandVo> selectBoughtLandList(LandVo landVo) throws Exception {
+        return landDao.selectBoughtLandList(landVo);
+    }
+
+    public List<LandVo> selectLeasedLandList(LandVo landVo) throws Exception {
+        return landDao.selectLeasedLandList(landVo);
+    }
+
+    public List<LandVo> selectRentedLandList(LandVo landVo) throws Exception {
+        return landDao.selectRentedLandList(landVo);
+    }
+
     public int updateLand(LandVo landVo) throws Exception {
         return landDao.updateLand(landVo);
     }

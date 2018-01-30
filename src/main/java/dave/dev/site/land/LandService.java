@@ -26,6 +26,33 @@ public interface LandService {
     public List<LandVo> selectLandList(LandVo landVo) throws Exception;
 
     /**
+     * Select bought land list list.
+     *
+     * @param landVo the land vo
+     * @return the list
+     * @throws Exception the exception
+     */
+    public List<LandVo> selectBoughtLandList(LandVo landVo) throws Exception;
+
+    /**
+     * Select leased land list list.
+     *
+     * @param landVo the land vo
+     * @return the list
+     * @throws Exception the exception
+     */
+    public List<LandVo> selectLeasedLandList(LandVo landVo) throws Exception;
+
+    /**
+     * Select rented land list list.
+     *
+     * @param landVo the land vo
+     * @return the list
+     * @throws Exception the exception
+     */
+    public List<LandVo> selectRentedLandList(LandVo landVo) throws Exception;
+
+    /**
      * Update land int.
      *
      * @param landVo the land vo

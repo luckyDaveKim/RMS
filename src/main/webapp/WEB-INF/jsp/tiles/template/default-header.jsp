@@ -17,9 +17,12 @@
                 </li>
                 <li class="dropdown">
                     <a aria-expanded="false" role="button" href="#" class="dropdown-toggle"
-                       data-toggle="dropdown">부동산 <span class="caret"></span></a>
+                       data-toggle="dropdown">매물 <span class="caret"></span></a>
                     <ul role="menu" class="dropdown-menu">
-                        <li><a href="/land/list">매물</a></li>
+                        <li><a href="/land/list">전체 매물</a></li>
+                        <li><a href="/land/rented-list">월세 매물</a></li>
+                        <li><a href="/land/leased-list">전세 매물</a></li>
+                        <li><a href="/land/bought-list">매매 매물</a></li>
                     </ul>
                 </li>
             </ul>
