@@ -45,7 +45,8 @@
                         <thead>
                         <tr>
                             <th data-toggle="true">매물구분</th>
-                            <th>가격</th>
+                            <th>보증금</th>
+                            <th>월세</th>
                             <th>방수/욕실수</th>
                             <th data-hide="phone,tablet">주소</th>
                             <th>건물명</th>
@@ -64,7 +65,10 @@
                                         ${rentedLandVo.saleType.description}
                                 </td>
                                 <td>
-                                        ${rentedLandVo.price}만원
+                                        ${rentedLandVo.deposit}만 원
+                                </td>
+                                <td>
+                                        ${rentedLandVo.rentPrice}만 원
                                 </td>
                                 <td>
                                         ${rentedLandVo.roomCount}/${rentedLandVo.bathroomCount}개
@@ -133,7 +137,7 @@
                         <thead>
                         <tr>
                             <th data-toggle="true">매물구분</th>
-                            <th>가격</th>
+                            <th>전세금</th>
                             <th>방수/욕실수</th>
                             <th data-hide="phone,tablet">주소</th>
                             <th>건물명</th>
@@ -152,7 +156,7 @@
                                         ${leasedLandVo.saleType.description}
                                 </td>
                                 <td>
-                                        ${leasedLandVo.price}만원
+                                        ${leasedLandVo.deposit}만 원
                                 </td>
                                 <td>
                                         ${leasedLandVo.roomCount}/${leasedLandVo.bathroomCount}개
@@ -240,7 +244,7 @@
                                         ${boughtLandVo.saleType.description}
                                 </td>
                                 <td>
-                                        ${boughtLandVo.price}만원
+                                        ${boughtLandVo.deposit}만 원
                                 </td>
                                 <td>
                                         ${boughtLandVo.roomCount}/${boughtLandVo.bathroomCount}개

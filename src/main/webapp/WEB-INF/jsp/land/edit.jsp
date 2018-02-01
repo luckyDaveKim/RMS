@@ -64,15 +64,19 @@
                                         <div class="col-sm-10"><input type="text" name="area" class="form-control"
                                                                       value="${landVo.area}" placeholder="평"></div>
                                     </div>
-                                    <div class="form-group"><label class="col-sm-2 control-label">가격:</label>
-                                        <div class="col-sm-10"><input type="text" name="price" class="form-control"
-                                                                      value="${landVo.price}" placeholder="만원"></div>
+                                    <div class="form-group"><label class="col-sm-2 control-label">보증금(전세금):</label>
+                                        <div class="col-sm-10"><input type="text" name="deposit" class="form-control"
+                                                                      value="${landVo.deposit}" placeholder="만 원"></div>
                                     </div>
-                                    <div class="form-group"><label class="col-sm-2 control-label">해당층:</label>
+                                    <div class="form-group"><label class="col-sm-2 control-label">월세:</label>
+                                        <div class="col-sm-10"><input type="text" name="rentPrice" class="form-control"
+                                                                      value="${landVo.rentPrice}" placeholder="만 원"></div>
+                                    </div>
+                                    <div class="form-group"><label class="col-sm-2 control-label">해당 층 수:</label>
                                         <div class="col-sm-10"><input type="text" name="floor" class="form-control"
                                                                       value="${landVo.floor}" placeholder="층"></div>
                                     </div>
-                                    <div class="form-group"><label class="col-sm-2 control-label">총층:</label>
+                                    <div class="form-group"><label class="col-sm-2 control-label">건물 층 수:</label>
                                         <div class="col-sm-10"><input type="text" name="floorSize" class="form-control"
                                                                       value="${landVo.floorSize}" placeholder="층"></div>
                                     </div>
@@ -336,7 +340,12 @@
                     range: [0, 100000],
                     step: 0.1
                 },
-                price: {
+                deposit: {
+                    required: true,
+                    digits: true,
+                    range: [0, 100000]
+                },
+                rentPrice: {
                     required: true,
                     digits: true,
                     range: [0, 100000]
@@ -388,8 +397,12 @@
                     range: '0 ~ 100,000 범위만 입력 가능합니다.',
                     step: '소수점 한자리까지 입력 가능합니다.'
                 },
-                price: {
-                    required: '가격을 입력해야 합니다.',
+                deposit: {
+                    required: '보증금(전세금)을 입력해야 합니다.',
+                    digits: '정수만 입력 가능합니다.',
+                    range: '0 ~ 100,000 범위만 입력 가능합니다.'
+                },
+                rentPrice: {
                     digits: '정수만 입력 가능합니다.',
                     range: '0 ~ 100,000 범위만 입력 가능합니다.'
                 },

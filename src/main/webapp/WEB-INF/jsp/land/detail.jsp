@@ -70,7 +70,12 @@
                                         <button class="btn btn-warning pull-right" onclick="sellLand();">재판매</button>
                                     </c:when>
                                 </c:choose>
-                                <h1 class="product-main-price">${landVo.price}만원 <span class="text-muted">${landVo.area}평</span>
+                                <h1 class="product-main-price">
+                                    ${landVo.deposit}만 원
+                                    <c:if test="${landVo.rentPrice > 0}">
+                                        / ${landVo.rentPrice}만 원
+                                    </c:if>
+                                    <span class="text-muted">${landVo.area}평</span>
                                 </h1>
                             </div>
                             <hr>

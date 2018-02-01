@@ -34,7 +34,8 @@
                         <thead>
                         <tr>
                             <th data-toggle="true">매물구분</th>
-                            <th>가격</th>
+                            <th>보증금</th>
+                            <th>월세</th>
                             <th>방수/욕실수</th>
                             <th data-hide="phone,tablet">주소</th>
                             <th>건물명</th>
@@ -53,7 +54,10 @@
                                         ${rentedLandVo.saleType.description}
                                 </td>
                                 <td>
-                                        ${rentedLandVo.price}만원
+                                        ${boughtLandVo.deposit}만 원
+                                </td>
+                                <td>
+                                        ${boughtLandVo.rentPrice}만 원
                                 </td>
                                 <td>
                                         ${rentedLandVo.roomCount}/${rentedLandVo.bathroomCount}개

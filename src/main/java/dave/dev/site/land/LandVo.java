@@ -1,7 +1,6 @@
 package dave.dev.site.land;
 
 import dave.dev.com.base.BaseVo;
-import dave.dev.com.enums.NoYes;
 
 /**
  * The type Land vo.
@@ -98,7 +97,8 @@ public class LandVo extends BaseVo {
     private String buildingName;        // 건물명
     private String buildingNumber;      // 호수
     private float area;                 // 면적
-    private int price;                  // 가격
+    private int deposit;                // 보증금(전세금)
+    private int rentPrice;              // 월세
     private int floor;                  // 해당층
     private int floorSize;              // 총층
     private int roomCount;              // 방수
@@ -203,21 +203,39 @@ public class LandVo extends BaseVo {
     }
 
     /**
-     * Gets price.
+     * Gets deposit.
      *
-     * @return the price
+     * @return the deposit
      */
-    public int getPrice() {
-        return price;
+    public int getDeposit() {
+        return deposit;
     }
 
     /**
-     * Sets price.
+     * Sets deposit.
      *
-     * @param price the price
+     * @param deposit the deposit
      */
-    public void setPrice(Integer price) {
-        this.price = (price == null || price < 0) ? 0 : price;
+    public void setDeposit(Integer deposit) {
+        this.deposit = (deposit == null || deposit < 0) ? 0 : deposit;
+    }
+
+    /**
+     * Gets rent price.
+     *
+     * @return the rent price
+     */
+    public int getRentPrice() {
+        return rentPrice;
+    }
+
+    /**
+     * Sets rent price.
+     *
+     * @param rentPrice the rent price
+     */
+    public void setRentPrice(Integer rentPrice) {
+        this.rentPrice = (rentPrice == null || rentPrice < 0) ? 0 : rentPrice;
     }
 
     /**

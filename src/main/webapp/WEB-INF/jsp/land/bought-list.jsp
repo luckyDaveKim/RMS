@@ -53,7 +53,7 @@
                                         ${boughtLandVo.saleType.description}
                                 </td>
                                 <td>
-                                        ${boughtLandVo.price}만원
+                                        ${boughtLandVo.deposit}만 원
                                 </td>
                                 <td>
                                         ${boughtLandVo.roomCount}/${boughtLandVo.bathroomCount}개
