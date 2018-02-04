@@ -33,16 +33,19 @@
                     <table class="footable table table-stripped toggle-arrow-tiny" data-page-size="15">
                         <thead>
                         <tr>
-                            <th data-toggle="true">매물구분</th>
                             <th>전세금</th>
-                            <th>방수/욕실수</th>
+                            <th>방/욕실 수</th>
+                            <th>면적</th>
                             <th data-hide="phone,tablet">주소</th>
                             <th>건물명</th>
-                            <th data-hide="phone">호수</th>
-                            <th>해당층/총층</th>
-                            <th data-hide="phone,tablet">연락처</th>
-                            <th data-hide="all">상세설명</th>
-                            <th data-hide="phone,tablet">수정일</th>
+                            <th data-hide="phone,tablet">호 수</th>
+                            <th data-hide="phone,tablet">해당/총 층</th>
+                            <th data-hide="all">공급/전용 면적</th>
+                            <th data-hide="all">지분</th>
+                            <th data-hide="all">현재 임대 보증금(전세, 매매금)/월세</th>
+                            <th data-hide="all">연락처</th>
+                            <th data-hide="phone,tablet">상세설명</th>
+                            <th data-hide="phone">입주 가능일</th>
                             <th class="text-right">기능</th>
                         </tr>
                         </thead>
@@ -50,13 +53,13 @@
                         <c:forEach var="leasedLandVo" items="${leasedLandVos}">
                             <tr>
                                 <td>
-                                        ${leasedLandVo.saleType.description}
-                                </td>
-                                <td>
                                         ${leasedLandVo.deposit}만 원
                                 </td>
                                 <td>
                                         ${leasedLandVo.roomCount}/${leasedLandVo.bathroomCount}개
+                                </td>
+                                <td>
+                                        ${leasedLandVo.supplyArea}(${leasedLandVo.exclusiveArea})
                                 </td>
                                 <td>
                                         ${leasedLandVo.address}
@@ -71,13 +74,22 @@
                                         ${leasedLandVo.floor}/${leasedLandVo.floorSize}층
                                 </td>
                                 <td>
+                                        ${leasedLandVo.supplyArea}/${leasedLandVo.exclusiveArea}평
+                                </td>
+                                <td>
+                                        ${leasedLandVo.stake}평
+                                </td>
+                                <td>
+                                        ${leasedLandVo.latestDeposit}/${leasedLandVo.latestRentPrice}만 원
+                                </td>
+                                <td>
                                         ${leasedLandVo.salesmanContact}
                                 </td>
                                 <td>
                                         ${leasedLandVo.memo}
                                 </td>
                                 <td>
-                                        ${leasedLandVo.modificationDateTime}
+                                        ${leasedLandVo.liveableDate}
                                 </td>
                                 <td class="text-right">
                                     <div class="btn-group">

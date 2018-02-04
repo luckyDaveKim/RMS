@@ -31,22 +31,11 @@
 
                             <div class="product-images">
 
-                                <div>
-                                    <div class="image-imitation">
-                                        [IMAGE 1]
+                                <c:forEach var="fileVo" items="${fileVos}">
+                                    <div>
+                                        <img src="${fileVo.imageFileVo}">
                                     </div>
-                                </div>
-                                <div>
-                                    <div class="image-imitation">
-                                        [IMAGE 2]
-                                    </div>
-                                </div>
-                                <div>
-                                    <div class="image-imitation">
-                                        [IMAGE 3]
-                                    </div>
-                                </div>
-
+                                </c:forEach>
 
                             </div>
 
@@ -75,25 +64,36 @@
                                     <c:if test="${landVo.rentPrice > 0}">
                                         / ${landVo.rentPrice}만 원
                                     </c:if>
-                                    <span class="text-muted">${landVo.area}평</span>
                                 </h1>
                             </div>
                             <hr>
 
-                            <dl class="small m-t-md">
-                                <dt>해당층/총층</dt>
-                                <dd>${landVo.floor}/${landVo.floorSize}층</dd>
-                                <dt>방수/욕실수</dt>
+                            <dl class="dl-horizontal m-t-md small">
+                                <dt>방/욕실 수</dt>
                                 <dd>${landVo.roomCount}/${landVo.bathroomCount}개</dd>
-                                <dt>입주가능일</dt>
+                                <dt>공급/전용 면적</dt>
+                                <dd>${landVo.supplyArea}/${landVo.exclusiveArea}평</dd>
+                                <dt>지분</dt>
+                                <dd>${landVo.stake}평</dd>
+                                <dt>해당/총 층</dt>
+                                <dd>${landVo.floor}/${landVo.floorSize}층</dd>
+                                <dt>입주 가능일</dt>
                                 <dd>${landVo.liveableDate}</dd>
                             </dl>
 
-                            <dl class="small m-t-md">
-                                <dt>매매자</dt>
+                            <dl class="dl-horizontal m-t-md small">
+                                <dt>의뢰인</dt>
                                 <dd>${landVo.salesman}</dd>
                                 <dt>연락처</dt>
                                 <dd>${landVo.salesmanContact}</dd>
+                            </dl>
+
+                            <h4>현재 임대 현황</h4>
+                            <dl class="dl-horizontal small">
+                                <dt>보증금(전세, 매매금)</dt>
+                                <dd>${landVo.latestDeposit}만 원</dd>
+                                <dt>월세</dt>
+                                <dd>${landVo.latestRentPrice}만 원</dd>
                             </dl>
 
                             <h4>상세 정보</h4>

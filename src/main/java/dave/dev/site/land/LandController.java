@@ -45,6 +45,11 @@ public class LandController extends BaseController {
         List<LandVo> rentedLandVos = landService.selectRentedLandList(new LandVo());
         model.addAttribute("rentedLandVos", rentedLandVos);
 
+        // 서버 시간
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        String formattedDate = dateFormat.format(new Date());
+        model.addAttribute("serverDate", formattedDate);
+
         return "land/list";
     }
 
@@ -126,9 +131,9 @@ public class LandController extends BaseController {
      */
     @RequestMapping(value = "/create", method = RequestMethod.GET)
     public String showLandWriting(Model model) {
+        // 서버 시간
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         String formattedDate = dateFormat.format(new Date());
-
         model.addAttribute("serverDate", formattedDate);
 
         return "land/create";
@@ -137,13 +142,12 @@ public class LandController extends BaseController {
     /**
      * Write land string.
      *
-     * @param landVo       the land vo
-     * @param liveableDate the liveable date
+     * @param landVo the land vo
      * @return the string
      * @throws Exception the exception
      */
     @RequestMapping(value = "/create", method = RequestMethod.POST)
-    public String writeLand(LandVo landVo, @RequestParam("liveableDate") String liveableDate) throws Exception {
+    public String writeLand(LandVo landVo) throws Exception {
         // 판매 상태 설정 - "판매중"
         landVo.setSaleState(LandVo.SaleState.SALE);
 

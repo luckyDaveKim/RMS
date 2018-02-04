@@ -26,8 +26,9 @@
                 <div class="tabs-container">
                     <ul class="nav nav-tabs">
                         <li class="active"><a data-toggle="tab" href="#tab-1">매물 정보</a></li>
-                        <li class=""><a data-toggle="tab" href="#tab-2">매매자 정보</a></li>
-                        <li class=""><a data-toggle="tab" href="#tab-3">사진</a></li>
+                        <li class=""><a data-toggle="tab" href="#tab-2">현재 임대 현황</a></li>
+                        <li class=""><a data-toggle="tab" href="#tab-3">의뢰인 정보</a></li>
+                        <li class=""><a data-toggle="tab" href="#tab-4">사진</a></li>
                     </ul>
                     <div class="tab-content">
                         <div id="tab-1" class="tab-pane active">
@@ -52,16 +53,42 @@
                                                                       class="form-control"
                                                                       placeholder="건물명"></div>
                                     </div>
-                                    <div class="form-group"><label class="col-sm-2 control-label">호수:</label>
+                                    <div class="form-group"><label class="col-sm-2 control-label">총 층:</label>
+                                        <div class="col-sm-10"><input type="text" name="floorSize" class="form-control"
+                                                                      placeholder="층"></div>
+                                    </div>
+                                    <div class="form-group"><label class="col-sm-2 control-label">해당 층:</label>
+                                        <div class="col-sm-10"><input type="text" name="floor" class="form-control"
+                                                                      placeholder="층"></div>
+                                    </div>
+                                    <div class="form-group"><label class="col-sm-2 control-label">호 수:</label>
                                         <div class="col-sm-10"><input type="text" name="buildingNumber"
                                                                       class="form-control"
                                                                       placeholder="호"></div>
                                     </div>
-                                    <div class="form-group"><label class="col-sm-2 control-label">면적:</label>
-                                        <div class="col-sm-10"><input type="text" name="area" class="form-control"
+                                    <div class="form-group"><label class="col-sm-2 control-label">공급 면적:</label>
+                                        <div class="col-sm-10"><input type="text" name="supplyArea" class="form-control"
                                                                       placeholder="평"></div>
                                     </div>
-                                    <div class="form-group"><label class="col-sm-2 control-label">보증금(전세금):</label>
+                                    <div class="form-group"><label class="col-sm-2 control-label">전용 면적:</label>
+                                        <div class="col-sm-10"><input type="text" name="exclusiveArea"
+                                                                      class="form-control"
+                                                                      placeholder="평"></div>
+                                    </div>
+                                    <div class="form-group"><label class="col-sm-2 control-label">지분:</label>
+                                        <div class="col-sm-10"><input type="text" name="stake" class="form-control"
+                                                                      placeholder="평"></div>
+                                    </div>
+                                    <div class="form-group"><label class="col-sm-2 control-label">방 수:</label>
+                                        <div class="col-sm-10"><input type="text" name="roomCount" class="form-control"
+                                                                      placeholder="개"></div>
+                                    </div>
+                                    <div class="form-group"><label class="col-sm-2 control-label">욕실 수:</label>
+                                        <div class="col-sm-10"><input type="text" name="bathroomCount"
+                                                                      class="form-control"
+                                                                      placeholder="개"></div>
+                                    </div>
+                                    <div class="form-group"><label class="col-sm-2 control-label">보증금(전세, 매매금):</label>
                                         <div class="col-sm-10"><input type="text" name="deposit" class="form-control"
                                                                       placeholder="만 원"></div>
                                     </div>
@@ -69,28 +96,25 @@
                                         <div class="col-sm-10"><input type="text" name="rentPrice" class="form-control"
                                                                       placeholder="만 원"></div>
                                     </div>
-                                    <div class="form-group"><label class="col-sm-2 control-label">해당 층 수:</label>
-                                        <div class="col-sm-10"><input type="text" name="floor" class="form-control"
-                                                                      placeholder="층"></div>
-                                    </div>
-                                    <div class="form-group"><label class="col-sm-2 control-label">건물 층 수:</label>
-                                        <div class="col-sm-10"><input type="text" name="floorSize" class="form-control"
-                                                                      placeholder="층"></div>
-                                    </div>
-                                    <div class="form-group"><label class="col-sm-2 control-label">방수:</label>
-                                        <div class="col-sm-10"><input type="text" name="roomCount" class="form-control"
-                                                                      placeholder="개"></div>
-                                    </div>
-                                    <div class="form-group"><label class="col-sm-2 control-label">욕실수:</label>
-                                        <div class="col-sm-10"><input type="text" name="bathroomCount"
-                                                                      class="form-control"
-                                                                      placeholder="개"></div>
-                                    </div>
-                                    <div class="form-group"><label class="col-sm-2 control-label">입주가능일:</label>
-                                        <div class="input-group date col-sm-10">
-                                            <span class="input-group-addon"><i class="fa fa-calendar"></i></span><input
-                                                type="text" name="liveableDate" class="form-control"
-                                                value="${serverDate}">
+                                    <div class="form-group"><label class="col-sm-2 control-label">입주 가능일:</label>
+                                        <div class="col-sm-10">
+                                            즉시 입주
+                                            <div class="switch">
+                                                <div class="onoffswitch">
+                                                    <input type="checkbox" id="liveableCheckbox"
+                                                           class="onoffswitch-checkbox">
+                                                    <label class="onoffswitch-label" for="liveableCheckbox">
+                                                        <span class="onoffswitch-inner"></span>
+                                                        <span class="onoffswitch-switch"></span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="input-group date">
+                                                <span class="input-group-addon"><i
+                                                        class="fa fa-calendar"></i></span><input
+                                                    type="text" name="liveableDate" class="form-control"
+                                                    value="${serverDate}">
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="form-group"><label class="col-sm-2 control-label">상세 정보:</label>
@@ -106,7 +130,27 @@
                             <div class="panel-body">
 
                                 <fieldset class="form-horizontal">
-                                    <div class="form-group"><label class="col-sm-2 control-label">매매자:</label>
+                                    <div class="form-group"><label class="col-sm-2 control-label">보증금(전세, 매매금):</label>
+                                        <div class="col-sm-10"><input type="text" name="latestDeposit"
+                                                                      class="form-control"
+                                                                      placeholder="만 원">
+                                        </div>
+                                    </div>
+                                    <div class="form-group"><label class="col-sm-2 control-label">월세:</label>
+                                        <div class="col-sm-10"><input type="text" name="latestRentPrice"
+                                                                      class="form-control"
+                                                                      placeholder="만 원">
+                                        </div>
+                                    </div>
+                                </fieldset>
+
+                            </div>
+                        </div>
+                        <div id="tab-3" class="tab-pane">
+                            <div class="panel-body">
+
+                                <fieldset class="form-horizontal">
+                                    <div class="form-group"><label class="col-sm-2 control-label">의뢰인:</label>
                                         <div class="col-sm-10"><input type="text" name="salesman" class="form-control"
                                                                       placeholder="이름">
                                         </div>
@@ -121,7 +165,7 @@
 
                             </div>
                         </div>
-                        <div id="tab-3" class="tab-pane">
+                        <div id="tab-4" class="tab-pane">
                             <div class="panel-body">
 
                                 <div class="table-responsive">
@@ -323,24 +367,32 @@
                     required: true,
                     maxlength: 100
                 },
+                floorSize: {
+                    number: true,
+                    range: [0, 100]
+                },
+                floor: {
+                    number: true,
+                    range: [0, 100]
+                },
                 buildingNumber: {
                     required: true,
                     maxlength: 100
                 },
-                area: {
-                    required: true,
+                supplyArea: {
                     number: true,
                     range: [0, 100000],
                     step: 0.1
                 },
-                deposit: {
-                    required: true,
-                    digits: true,
-                    range: [0, 100000]
+                exclusiveArea: {
+                    number: true,
+                    range: [0, 100000],
+                    step: 0.1
                 },
-                rentPrice: {
-                    digits: true,
-                    range: [0, 100000]
+                stake: {
+                    number: true,
+                    range: [0, 100000],
+                    step: 0.1
                 },
                 roomCount: {
                     required: true,
@@ -352,12 +404,29 @@
                     digits: true,
                     range: [0, 100000]
                 },
+                deposit: {
+                    required: true,
+                    digits: true,
+                    range: [0, 100000]
+                },
+                rentPrice: {
+                    digits: true,
+                    range: [0, 100000]
+                },
                 liveableDate: {
                     required: true,
                     dateISO: true
                 },
                 memo: {
                     maxlength: 4000
+                },
+                latestDeposit: {
+                    digits: true,
+                    range: [0, 100000]
+                },
+                latestRentPrice: {
+                    digits: true,
+                    range: [0, 100000]
                 },
                 salesman: {
                     maxlength: 100
@@ -379,24 +448,32 @@
                     required: '건물명을 입력해야 합니다.',
                     maxlength: '100자 까지 입력 가능합니다.'
                 },
+                floorSize: {
+                    number: '숫자만 입력 가능합니다.',
+                    range: '0 ~ 100 범위만 입력 가능합니다.',
+                },
+                floor: {
+                    number: '숫자만 입력 가능합니다.',
+                    range: '0 ~ 100 범위만 입력 가능합니다.',
+                },
                 buildingNumber: {
-                    required: '호수를 입력해야 합니다.',
+                    required: '호 수를 입력해야 합니다.',
                     maxlength: '100자 까지 입력 가능합니다.'
                 },
-                area: {
-                    required: '면적을 입력해야 합니다.',
+                supplyArea: {
                     number: '숫자만 입력 가능합니다.',
                     range: '0 ~ 100,000 범위만 입력 가능합니다.',
                     step: '소수점 한자리까지 입력 가능합니다.'
                 },
-                deposit: {
-                    required: '보증금(전세금)을 입력해야 합니다.',
-                    digits: '정수만 입력 가능합니다.',
-                    range: '0 ~ 100,000 범위만 입력 가능합니다.'
+                exclusiveArea: {
+                    number: '숫자만 입력 가능합니다.',
+                    range: '0 ~ 100,000 범위만 입력 가능합니다.',
+                    step: '소수점 한자리까지 입력 가능합니다.'
                 },
-                rentPrice: {
-                    digits: '정수만 입력 가능합니다.',
-                    range: '0 ~ 100,000 범위만 입력 가능합니다.'
+                stake: {
+                    number: '숫자만 입력 가능합니다.',
+                    range: '0 ~ 100,000 범위만 입력 가능합니다.',
+                    step: '소수점 한자리까지 입력 가능합니다.'
                 },
                 roomCount: {
                     required: '방 개수를 입력해야 합니다.',
@@ -408,12 +485,29 @@
                     digits: '정수만 입력 가능합니다.',
                     range: '0 ~ 100,000 범위만 입력 가능합니다.'
                 },
+                deposit: {
+                    required: '보증금(전세금)을 입력해야 합니다.',
+                    digits: '정수만 입력 가능합니다.',
+                    range: '0 ~ 100,000 범위만 입력 가능합니다.'
+                },
+                rentPrice: {
+                    digits: '정수만 입력 가능합니다.',
+                    range: '0 ~ 100,000 범위만 입력 가능합니다.'
+                },
                 liveableDate: {
-                    required: '입주가능일을 입력해야 합니다.',
+                    required: '입주 가능일을 입력해야 합니다.',
                     dateISO: '날짜가 올바르지 않습니다.'
                 },
                 memo: {
                     maxlength: '4,000자 까지 입력 가능합니다.'
+                },
+                latestDeposit: {
+                    digits: '정수만 입력 가능합니다.',
+                    range: '0 ~ 100,000 범위만 입력 가능합니다.'
+                },
+                latestRentPrice: {
+                    digits: '정수만 입력 가능합니다.',
+                    range: '0 ~ 100,000 범위만 입력 가능합니다.'
                 },
                 salesman: {
                     maxlength: '100자 까지 입력 가능합니다.'
@@ -422,17 +516,18 @@
                     maxlength: '100자 까지 입력 가능합니다.'
                 }
             }, invalidHandler: function (form, validator) {
-                var errors = validator.numberOfInvalids();
-                if (errors) {
-                    swal({
-                        title: '입력값이 올바르지 않습니다!',
-                        text: validator.errorList[0].message,
-                        type: 'warning',
-                        confirmButtonText: '확인'
-                    }).then(function () {
-                        validator.errorList[0].element.focus();
-                    });
+                validator.errorList[0].element.focus();
+            }, submitHandler: function (form) {
+                var $form = $(form),
+                    liveabledRightNow = $form.find('#liveableCheckbox').is(':checked'),
+                    $liveableDate = $form.find('[name="liveableDate"]');
+
+                if (liveabledRightNow) {
+                    $liveableDate.val('${serverDate}');
                 }
+
+                // 전송
+                form.submit();
             }
         });
     });

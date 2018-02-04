@@ -9,9 +9,13 @@
         ADDRESS,
         BUILDING_NAME,
         BUILDING_NUMBER,
-        AREA,
+        SUPPLY_AREA,
+        EXCLUSIVE_AREA,
+        STAKE,
         DEPOSIT,
+        LATEST_DEPOSIT,
         RENT_PRICE,
+        LATEST_RENT_PRICE,
         FLOOR,
         FLOOR_SIZE,
         ROOM_COUNT,
@@ -37,7 +41,8 @@
         SELECT <include refid="selectedLand" />
         FROM    LANDS
         WHERE   SALE_STATE = "SALE"
-        ORDER BY MODIFICATION_DATETIME DESC
+        ORDER BY DEPOSIT
+        , RENT_PRICE
     </select>
     <!--TODO : enum 을 통한 where 조건절 삽입 방법???
     WHERE   SALE_STATE = #{saleState}-->
@@ -47,8 +52,9 @@
         SELECT <include refid="selectedLand" />
         FROM    LANDS
         WHERE   SALE_STATE = "SALE"
-                AND SALE_TYPE = "BUY"
-        ORDER BY MODIFICATION_DATETIME DESC
+        AND SALE_TYPE = "BUY"
+        ORDER BY DEPOSIT
+        , RENT_PRICE
     </select>
     <!--TODO : enum 을 통한 where 조건절 삽입 방법???
     WHERE   SALE_STATE = #{saleState}-->
@@ -58,8 +64,9 @@
         SELECT <include refid="selectedLand" />
         FROM    LANDS
         WHERE   SALE_STATE = "SALE"
-                AND SALE_TYPE = "LEASE"
-        ORDER BY MODIFICATION_DATETIME DESC
+        AND SALE_TYPE = "LEASE"
+        ORDER BY DEPOSIT
+        , RENT_PRICE
     </select>
     <!--TODO : enum 을 통한 where 조건절 삽입 방법???
     WHERE   SALE_STATE = #{saleState}-->
@@ -69,8 +76,9 @@
         SELECT <include refid="selectedLand" />
         FROM    LANDS
         WHERE   SALE_STATE = "SALE"
-                AND SALE_TYPE = "RENT"
-        ORDER BY MODIFICATION_DATETIME DESC
+        AND SALE_TYPE = "RENT"
+        ORDER BY DEPOSIT
+        , RENT_PRICE
     </select>
     <!--TODO : enum 을 통한 where 조건절 삽입 방법???
     WHERE   SALE_STATE = #{saleState}-->
@@ -83,9 +91,13 @@
                 ADDRESS,
                 BUILDING_NAME,
                 BUILDING_NUMBER,
-                AREA,
+                SUPPLY_AREA,
+                EXCLUSIVE_AREA,
+                STAKE,
                 DEPOSIT,
+                LATEST_DEPOSIT,
                 RENT_PRICE,
+                LATEST_RENT_PRICE,
                 FLOOR,
                 FLOOR_SIZE,
                 ROOM_COUNT,
@@ -102,9 +114,13 @@
                 #{address},
                 #{buildingName},
                 #{buildingNumber},
-                #{area},
+                #{supplyArea},
+                #{exclusiveArea},
+                #{stake},
                 #{deposit},
+                #{latestDeposit},
                 #{rentPrice},
+                #{latestRentPrice},
                 #{floor},
                 #{floorSize},
                 #{roomCount},
@@ -125,9 +141,14 @@
             ADDRESS = #{address},
             BUILDING_NAME = #{buildingName},
             BUILDING_NUMBER = #{buildingNumber},
-            AREA = #{area},
+            SUPPLY_AREA = #{supplyArea},
+            EXCLUSIVE_AREA = #{exclusiveArea},
+            STAKE = #{stake},
+            SUPPLY_AREA = #{supplyArea},
             DEPOSIT = #{deposit},
+            LATEST_DEPOSIT = #{latestDeposit},
             RENT_PRICE = #{rentPrice},
+            LATEST_RENT_PRICE = #{latestRentPrice},
             FLOOR = #{floor},
             FLOOR_SIZE = #{floorSize},
             ROOM_COUNT = #{roomCount},

@@ -91,33 +91,36 @@ public class LandVo extends BaseVo {
         }
     }
 
-    private int landSq;                 // 매물 코드
+    private Integer landSq;             // 매물 코드
     private SaleType saleType;          // 매물 구분
     private String address;             // 주소
     private String buildingName;        // 건물명
-    private String buildingNumber;      // 호수
-    private float area;                 // 면적
-    private int deposit;                // 보증금(전세금)
-    private int rentPrice;              // 월세
-    private int floor;                  // 해당층
-    private int floorSize;              // 총층
-    private int roomCount;              // 방수
-    private int bathroomCount;          // 욕실수
-    private String liveableDate;        // 입주가능일
+    private String buildingNumber;      // 호 수
+    private float supplyArea;           // 공급 면적
+    private float exclusiveArea;        // 전용 면적
+    private float stake;                // 지분
+    private Integer deposit;            // 보증금(전세, 매매금)
+    private Integer latestDeposit;      // 이전 보증금(전세, 매매금)
+    private Integer rentPrice;          // 월세
+    private Integer latestRentPrice;    // 이전 월세
+    private Integer floor;              // 해당층
+    private Integer floorSize;          // 총층
+    private Integer roomCount;          // 방수
+    private Integer bathroomCount;      // 욕실수
+    private String liveableDate;        // 입주 가능일
     private String memo;                // 상세정보
     private String salesman;            // 판매자
     private String salesmanContact;     // 판매자 연락처
     private String creationDateTime;    // 생성날짜
     private String modificationDateTime;// 수정날짜
     private SaleState saleState;        // 판매 상태
-    private byte[] images;              // 이미지
 
     /**
      * Gets land sq.
      *
      * @return the land sq
      */
-    public int getLandSq() {
+    public Integer getLandSq() {
         return landSq;
     }
 
@@ -127,7 +130,7 @@ public class LandVo extends BaseVo {
      * @param landSq the land sq
      */
     public void setLandSq(Integer landSq) {
-        this.landSq = (landSq == null || landSq < 0) ? 0 : landSq;
+        this.landSq = landSq;
     }
 
     /**
@@ -203,11 +206,65 @@ public class LandVo extends BaseVo {
     }
 
     /**
+     * Gets supply area.
+     *
+     * @return the supply area
+     */
+    public float getSupplyArea() {
+        return supplyArea;
+    }
+
+    /**
+     * Sets supply area.
+     *
+     * @param supplyArea the supply area
+     */
+    public void setSupplyArea(float supplyArea) {
+        this.supplyArea = supplyArea;
+    }
+
+    /**
+     * Gets exclusive area.
+     *
+     * @return the exclusive area
+     */
+    public float getExclusiveArea() {
+        return exclusiveArea;
+    }
+
+    /**
+     * Sets exclusive area.
+     *
+     * @param exclusiveArea the exclusive area
+     */
+    public void setExclusiveArea(float exclusiveArea) {
+        this.exclusiveArea = exclusiveArea;
+    }
+
+    /**
+     * Gets stake.
+     *
+     * @return the stake
+     */
+    public float getStake() {
+        return stake;
+    }
+
+    /**
+     * Sets stake.
+     *
+     * @param stake the stake
+     */
+    public void setStake(float stake) {
+        this.stake = stake;
+    }
+
+    /**
      * Gets deposit.
      *
      * @return the deposit
      */
-    public int getDeposit() {
+    public Integer getDeposit() {
         return deposit;
     }
 
@@ -217,7 +274,25 @@ public class LandVo extends BaseVo {
      * @param deposit the deposit
      */
     public void setDeposit(Integer deposit) {
-        this.deposit = (deposit == null || deposit < 0) ? 0 : deposit;
+        this.deposit = deposit;
+    }
+
+    /**
+     * Gets latest deposit.
+     *
+     * @return the latest deposit
+     */
+    public Integer getLatestDeposit() {
+        return latestDeposit;
+    }
+
+    /**
+     * Sets latest deposit.
+     *
+     * @param latestDeposit the latest deposit
+     */
+    public void setLatestDeposit(Integer latestDeposit) {
+        this.latestDeposit = latestDeposit;
     }
 
     /**
@@ -225,7 +300,7 @@ public class LandVo extends BaseVo {
      *
      * @return the rent price
      */
-    public int getRentPrice() {
+    public Integer getRentPrice() {
         return rentPrice;
     }
 
@@ -235,25 +310,25 @@ public class LandVo extends BaseVo {
      * @param rentPrice the rent price
      */
     public void setRentPrice(Integer rentPrice) {
-        this.rentPrice = (rentPrice == null || rentPrice < 0) ? 0 : rentPrice;
+        this.rentPrice = rentPrice;
     }
 
     /**
-     * Gets area.
+     * Gets latest rent price.
      *
-     * @return the area
+     * @return the latest rent price
      */
-    public float getArea() {
-        return area;
+    public Integer getLatestRentPrice() {
+        return latestRentPrice;
     }
 
     /**
-     * Sets area.
+     * Sets latest rent price.
      *
-     * @param area the area
+     * @param latestRentPrice the latest rent price
      */
-    public void setArea(Float area) {
-        this.area = (area == null || area <= 0) ? 1 : area;
+    public void setLatestRentPrice(Integer latestRentPrice) {
+        this.latestRentPrice = latestRentPrice;
     }
 
     /**
@@ -261,7 +336,7 @@ public class LandVo extends BaseVo {
      *
      * @return the floor
      */
-    public int getFloor() {
+    public Integer getFloor() {
         return floor;
     }
 
@@ -271,7 +346,7 @@ public class LandVo extends BaseVo {
      * @param floor the floor
      */
     public void setFloor(Integer floor) {
-        this.floor = (floor == null || floor <= 0) ? 1 : floor;
+        this.floor = floor;
     }
 
     /**
@@ -279,7 +354,7 @@ public class LandVo extends BaseVo {
      *
      * @return the floor size
      */
-    public int getFloorSize() {
+    public Integer getFloorSize() {
         return floorSize;
     }
 
@@ -289,7 +364,7 @@ public class LandVo extends BaseVo {
      * @param floorSize the floor size
      */
     public void setFloorSize(Integer floorSize) {
-        this.floorSize = (floorSize == null || floorSize < 0) ? 0 : floorSize;
+        this.floorSize = floorSize;
     }
 
     /**
@@ -297,7 +372,7 @@ public class LandVo extends BaseVo {
      *
      * @return the room count
      */
-    public int getRoomCount() {
+    public Integer getRoomCount() {
         return roomCount;
     }
 
@@ -307,7 +382,7 @@ public class LandVo extends BaseVo {
      * @param roomCount the room count
      */
     public void setRoomCount(Integer roomCount) {
-        this.roomCount = (roomCount == null || roomCount < 0) ? 0 : roomCount;
+        this.roomCount = roomCount;
     }
 
     /**
@@ -315,7 +390,7 @@ public class LandVo extends BaseVo {
      *
      * @return the bathroom count
      */
-    public int getBathroomCount() {
+    public Integer getBathroomCount() {
         return bathroomCount;
     }
 
@@ -325,7 +400,7 @@ public class LandVo extends BaseVo {
      * @param bathroomCount the bathroom count
      */
     public void setBathroomCount(Integer bathroomCount) {
-        this.bathroomCount = (bathroomCount == null || bathroomCount < 0) ? 0 : bathroomCount;
+        this.bathroomCount = bathroomCount;
     }
 
     /**
@@ -453,5 +528,4 @@ public class LandVo extends BaseVo {
     public void setSaleState(SaleState saleState) {
         this.saleState = saleState;
     }
-
 }
