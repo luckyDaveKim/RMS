@@ -381,37 +381,37 @@
                 },
                 supplyArea: {
                     number: true,
-                    range: [0, 100000],
-                    step: 0.1
+                    range: [0, 100000000],
+                    step: 0.01
                 },
                 exclusiveArea: {
                     number: true,
-                    range: [0, 100000],
-                    step: 0.1
+                    range: [0, 100000000],
+                    step: 0.01
                 },
                 stake: {
                     number: true,
-                    range: [0, 100000],
-                    step: 0.1
+                    range: [0, 100000000],
+                    step: 0.01
                 },
                 roomCount: {
                     required: true,
                     digits: true,
-                    range: [0, 100000]
+                    range: [0, 100000000]
                 },
                 bathroomCount: {
                     required: true,
                     digits: true,
-                    range: [0, 100000]
+                    range: [0, 100000000]
                 },
                 deposit: {
                     required: true,
                     digits: true,
-                    range: [0, 100000]
+                    range: [0, 100000000]
                 },
                 rentPrice: {
                     digits: true,
-                    range: [0, 100000]
+                    range: [0, 100000000]
                 },
                 liveableDate: {
                     required: true,
@@ -422,11 +422,11 @@
                 },
                 latestDeposit: {
                     digits: true,
-                    range: [0, 100000]
+                    range: [0, 100000000]
                 },
                 latestRentPrice: {
                     digits: true,
-                    range: [0, 100000]
+                    range: [0, 100000000]
                 },
                 salesman: {
                     maxlength: 100
@@ -462,37 +462,37 @@
                 },
                 supplyArea: {
                     number: '숫자만 입력 가능합니다.',
-                    range: '0 ~ 100,000 범위만 입력 가능합니다.',
-                    step: '소수점 한자리까지 입력 가능합니다.'
+                    range: '0 ~ 100,000,000 범위만 입력 가능합니다.',
+                    step: '소수점 두자리까지 입력 가능합니다.'
                 },
                 exclusiveArea: {
                     number: '숫자만 입력 가능합니다.',
-                    range: '0 ~ 100,000 범위만 입력 가능합니다.',
-                    step: '소수점 한자리까지 입력 가능합니다.'
+                    range: '0 ~ 100,000,000 범위만 입력 가능합니다.',
+                    step: '소수점 두자리까지 입력 가능합니다.'
                 },
                 stake: {
                     number: '숫자만 입력 가능합니다.',
-                    range: '0 ~ 100,000 범위만 입력 가능합니다.',
-                    step: '소수점 한자리까지 입력 가능합니다.'
+                    range: '0 ~ 100,000,000 범위만 입력 가능합니다.',
+                    step: '소수점 두자리까지 입력 가능합니다.'
                 },
                 roomCount: {
                     required: '방 개수를 입력해야 합니다.',
                     digits: '정수만 입력 가능합니다.',
-                    range: '0 ~ 100,000 범위만 입력 가능합니다.'
+                    range: '0 ~ 100,000,000 범위만 입력 가능합니다.'
                 },
                 bathroomCount: {
                     required: '욕실 개수를 입력해야 합니다.',
                     digits: '정수만 입력 가능합니다.',
-                    range: '0 ~ 100,000 범위만 입력 가능합니다.'
+                    range: '0 ~ 100,000,000 범위만 입력 가능합니다.'
                 },
                 deposit: {
                     required: '보증금(전세금)을 입력해야 합니다.',
                     digits: '정수만 입력 가능합니다.',
-                    range: '0 ~ 100,000 범위만 입력 가능합니다.'
+                    range: '0 ~ 100,000,000 범위만 입력 가능합니다.'
                 },
                 rentPrice: {
                     digits: '정수만 입력 가능합니다.',
-                    range: '0 ~ 100,000 범위만 입력 가능합니다.'
+                    range: '0 ~ 100,000,000 범위만 입력 가능합니다.'
                 },
                 liveableDate: {
                     required: '입주 가능일을 입력해야 합니다.',
@@ -503,11 +503,11 @@
                 },
                 latestDeposit: {
                     digits: '정수만 입력 가능합니다.',
-                    range: '0 ~ 100,000 범위만 입력 가능합니다.'
+                    range: '0 ~ 100,000,000 범위만 입력 가능합니다.'
                 },
                 latestRentPrice: {
                     digits: '정수만 입력 가능합니다.',
-                    range: '0 ~ 100,000 범위만 입력 가능합니다.'
+                    range: '0 ~ 100,000,000 범위만 입력 가능합니다.'
                 },
                 salesman: {
                     maxlength: '100자 까지 입력 가능합니다.'
@@ -528,6 +528,14 @@
 
                 // 전송
                 form.submit();
+            }
+        });
+
+        $('#liveableCheckbox').on('change', function () {
+            var $form = $('#form');
+
+            if ($(this).prop('checked')) {
+                $form.find('[name="liveableDate"]').val('${serverDate}');
             }
         });
     });

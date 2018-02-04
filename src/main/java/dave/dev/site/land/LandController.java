@@ -6,7 +6,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.annotation.Resource;
 import java.text.SimpleDateFormat;
@@ -33,6 +32,11 @@ public class LandController extends BaseController {
      */
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     public String showLandList(Model model) throws Exception {
+        // 서버 시간
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        String formattedDate = dateFormat.format(new Date());
+        model.addAttribute("serverDate", formattedDate);
+
         // 매매 리스트 조회
         List<LandVo> boughtLandVos = landService.selectBoughtLandList(new LandVo());
         model.addAttribute("boughtLandVos", boughtLandVos);
@@ -44,11 +48,6 @@ public class LandController extends BaseController {
         // 월세 리스트 조회
         List<LandVo> rentedLandVos = landService.selectRentedLandList(new LandVo());
         model.addAttribute("rentedLandVos", rentedLandVos);
-
-        // 서버 시간
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-        String formattedDate = dateFormat.format(new Date());
-        model.addAttribute("serverDate", formattedDate);
 
         return "land/list";
     }
@@ -62,6 +61,11 @@ public class LandController extends BaseController {
      */
     @RequestMapping(value = "/bought-list", method = RequestMethod.GET)
     public String showBoughtLandList(Model model) throws Exception {
+        // 서버 시간
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        String formattedDate = dateFormat.format(new Date());
+        model.addAttribute("serverDate", formattedDate);
+
         // 매매 리스트 조회
         List<LandVo> boughtLandVos = landService.selectBoughtLandList(new LandVo());
         model.addAttribute("boughtLandVos", boughtLandVos);
@@ -78,6 +82,11 @@ public class LandController extends BaseController {
      */
     @RequestMapping(value = "/leased-list", method = RequestMethod.GET)
     public String showLeasedLandList(Model model) throws Exception {
+        // 서버 시간
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        String formattedDate = dateFormat.format(new Date());
+        model.addAttribute("serverDate", formattedDate);
+
         // 전세 리스트 조회
         List<LandVo> leasedLandVos = landService.selectLeasedLandList(new LandVo());
         model.addAttribute("leasedLandVos", leasedLandVos);
@@ -94,6 +103,11 @@ public class LandController extends BaseController {
      */
     @RequestMapping(value = "/rented-list", method = RequestMethod.GET)
     public String showRentedLandList(Model model) throws Exception {
+        // 서버 시간
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        String formattedDate = dateFormat.format(new Date());
+        model.addAttribute("serverDate", formattedDate);
+
         // 월세 리스트 조회
         List<LandVo> rentedLandVos = landService.selectRentedLandList(new LandVo());
         model.addAttribute("rentedLandVos", rentedLandVos);
@@ -167,6 +181,11 @@ public class LandController extends BaseController {
      */
     @RequestMapping(value = "/edit/{landSq}", method = RequestMethod.GET)
     public String showLandEdit(Model model, @PathVariable(value = "landSq") int landSq) throws Exception {
+        // 서버 시간
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        String formattedDate = dateFormat.format(new Date());
+        model.addAttribute("serverDate", formattedDate);
+
         // land param 생성
         LandVo param = new LandVo();
         param.setLandSq(landSq);

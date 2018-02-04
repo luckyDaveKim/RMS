@@ -36,13 +36,11 @@
                             <th>보증금</th>
                             <th>월세</th>
                             <th>방/욕실 수</th>
-                            <th>면적</th>
+                            <th>공급/전용(지분) 면적</th>
                             <th data-hide="phone,tablet">주소</th>
                             <th>건물명</th>
                             <th data-hide="phone,tablet">호 수</th>
                             <th data-hide="phone,tablet">해당/총 층</th>
-                            <th data-hide="all">공급/전용 면적</th>
-                            <th data-hide="all">지분</th>
                             <th data-hide="all">현재 임대 보증금(전세, 매매금)/월세</th>
                             <th data-hide="all">연락처</th>
                             <th data-hide="phone,tablet">상세설명</th>
@@ -63,7 +61,7 @@
                                         ${rentedLandVo.roomCount}/${rentedLandVo.bathroomCount}개
                                 </td>
                                 <td>
-                                        ${rentedLandVo.supplyArea}(${rentedLandVo.exclusiveArea})
+                                        ${rentedLandVo.supplyArea}/${rentedLandVo.exclusiveArea}(${rentedLandVo.stake})평
                                 </td>
                                 <td>
                                         ${rentedLandVo.address}
@@ -76,12 +74,6 @@
                                 </td>
                                 <td>
                                         ${rentedLandVo.floor}/${rentedLandVo.floorSize}층
-                                </td>
-                                <td>
-                                        ${rentedLandVo.supplyArea}/${rentedLandVo.exclusiveArea}평
-                                </td>
-                                <td>
-                                        ${rentedLandVo.stake}평
                                 </td>
                                 <td>
                                         ${rentedLandVo.latestDeposit}/${rentedLandVo.latestRentPrice}만 원
@@ -97,8 +89,12 @@
                                 </td>
                                 <td class="text-right">
                                     <div class="btn-group">
-                                        <button class="btn-white btn btn-xs" onclick="location.href='/land/detail/${rentedLandVo.landSq}';">상세보기</button>
-                                        <button class="btn-white btn btn-xs" onclick="location.href='/land/edit/${rentedLandVo.landSq}';">수정</button>
+                                        <button class="btn-white btn btn-xs"
+                                                onclick="location.href='/land/detail/${rentedLandVo.landSq}';">상세보기
+                                        </button>
+                                        <button class="btn-white btn btn-xs"
+                                                onclick="location.href='/land/edit/${rentedLandVo.landSq}';">수정
+                                        </button>
                                     </div>
                                 </td>
                             </tr>
