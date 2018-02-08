@@ -56,50 +56,50 @@
                                         </div>
                                     </div>
                                     <div class="form-group"><label class="col-sm-2 control-label">총 층:</label>
-                                        <div class="col-sm-10"><input type="text" name="floorSize" class="form-control"
+                                        <div class="col-sm-10"><input type="number" name="floorSize" class="form-control"
                                                                       value="${landVo.floorSize}" placeholder="층"></div>
                                     </div>
                                     <div class="form-group"><label class="col-sm-2 control-label">해당 층:</label>
-                                        <div class="col-sm-10"><input type="text" name="floor" class="form-control"
+                                        <div class="col-sm-10"><input type="number" name="floor" class="form-control"
                                                                       value="${landVo.floor}" placeholder="층"></div>
                                     </div>
                                     <div class="form-group"><label class="col-sm-2 control-label">호 수:</label>
-                                        <div class="col-sm-10"><input type="text" name="buildingNumber"
+                                        <div class="col-sm-10"><input type="number" name="buildingNumber"
                                                                       class="form-control"
                                                                       value="${landVo.buildingNumber}" placeholder="호">
                                         </div>
                                     </div>
                                     <div class="form-group"><label class="col-sm-2 control-label">공급 면적:</label>
-                                        <div class="col-sm-10"><input type="text" name="supplyArea" class="form-control"
+                                        <div class="col-sm-10"><input type="number" name="supplyArea" class="form-control"
                                                                       value="${landVo.supplyArea}" placeholder="평">
                                         </div>
                                     </div>
                                     <div class="form-group"><label class="col-sm-2 control-label">전용 면적:</label>
-                                        <div class="col-sm-10"><input type="text" name="exclusiveArea"
+                                        <div class="col-sm-10"><input type="number" name="exclusiveArea"
                                                                       class="form-control"
                                                                       value="${landVo.exclusiveArea}" placeholder="평">
                                         </div>
                                     </div>
                                     <div class="form-group"><label class="col-sm-2 control-label">지분:</label>
-                                        <div class="col-sm-10"><input type="text" name="stake" class="form-control"
+                                        <div class="col-sm-10"><input type="number" name="stake" class="form-control"
                                                                       value="${landVo.stake}" placeholder="평"></div>
                                     </div>
                                     <div class="form-group"><label class="col-sm-2 control-label">방 수:</label>
-                                        <div class="col-sm-10"><input type="text" name="roomCount" class="form-control"
+                                        <div class="col-sm-10"><input type="number" name="roomCount" class="form-control"
                                                                       value="${landVo.roomCount}" placeholder="개"></div>
                                     </div>
                                     <div class="form-group"><label class="col-sm-2 control-label">욕실 수:</label>
-                                        <div class="col-sm-10"><input type="text" name="bathroomCount"
+                                        <div class="col-sm-10"><input type="number" name="bathroomCount"
                                                                       class="form-control"
                                                                       value="${landVo.bathroomCount}"
                                                                       placeholder="개"></div>
                                     </div>
                                     <div class="form-group"><label class="col-sm-2 control-label">보증금(전세, 매매금):</label>
-                                        <div class="col-sm-10"><input type="text" name="deposit" class="form-control"
+                                        <div class="col-sm-10"><input type="number" name="deposit" class="form-control"
                                                                       value="${landVo.deposit}" placeholder="만 원"></div>
                                     </div>
                                     <div class="form-group"><label class="col-sm-2 control-label">월세:</label>
-                                        <div class="col-sm-10"><input type="text" name="rentPrice" class="form-control"
+                                        <div class="col-sm-10"><input type="number" name="rentPrice" class="form-control"
                                                                       value="${landVo.rentPrice}" placeholder="만 원">
                                         </div>
                                     </div>
@@ -138,13 +138,13 @@
 
                                 <fieldset class="form-horizontal">
                                     <div class="form-group"><label class="col-sm-2 control-label">보증금(전세, 매매금):</label>
-                                        <div class="col-sm-10"><input type="text" name="latestDeposit"
+                                        <div class="col-sm-10"><input type="number" name="latestDeposit"
                                                                       class="form-control"
                                                                       value="${landVo.latestDeposit}" placeholder="만 원">
                                         </div>
                                     </div>
                                     <div class="form-group"><label class="col-sm-2 control-label">월세:</label>
-                                        <div class="col-sm-10"><input type="text" name="latestRentPrice"
+                                        <div class="col-sm-10"><input type="number" name="latestRentPrice"
                                                                       class="form-control"
                                                                       value="${landVo.latestRentPrice}"
                                                                       placeholder="만 원">
@@ -164,7 +164,7 @@
                                         </div>
                                     </div>
                                     <div class="form-group"><label class="col-sm-2 control-label">연락처:</label>
-                                        <div class="col-sm-10"><input type="text" name="salesmanContact"
+                                        <div class="col-sm-10"><input type="tel" name="salesmanContact"
                                                                       class="form-control"
                                                                       value="${landVo.salesmanContact}"
                                                                       placeholder="연락처">

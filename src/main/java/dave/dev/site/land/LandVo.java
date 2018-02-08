@@ -96,9 +96,9 @@ public class LandVo extends BaseVo {
     private String address;             // 주소
     private String buildingName;        // 건물명
     private String buildingNumber;      // 호 수
-    private float supplyArea;           // 공급 면적
-    private float exclusiveArea;        // 전용 면적
-    private float stake;                // 지분
+    private Float supplyArea;           // 공급 면적
+    private Float exclusiveArea;        // 전용 면적
+    private Float stake;                // 지분
     private Integer deposit;            // 보증금(전세, 매매금)
     private Integer latestDeposit;      // 이전 보증금(전세, 매매금)
     private Integer rentPrice;          // 월세
@@ -210,7 +210,7 @@ public class LandVo extends BaseVo {
      *
      * @return the supply area
      */
-    public float getSupplyArea() {
+    public Float getSupplyArea() {
         return supplyArea;
     }
 
@@ -219,7 +219,7 @@ public class LandVo extends BaseVo {
      *
      * @param supplyArea the supply area
      */
-    public void setSupplyArea(float supplyArea) {
+    public void setSupplyArea(Float supplyArea) {
         this.supplyArea = supplyArea;
     }
 
@@ -228,7 +228,7 @@ public class LandVo extends BaseVo {
      *
      * @return the exclusive area
      */
-    public float getExclusiveArea() {
+    public Float getExclusiveArea() {
         return exclusiveArea;
     }
 
@@ -237,7 +237,7 @@ public class LandVo extends BaseVo {
      *
      * @param exclusiveArea the exclusive area
      */
-    public void setExclusiveArea(float exclusiveArea) {
+    public void setExclusiveArea(Float exclusiveArea) {
         this.exclusiveArea = exclusiveArea;
     }
 
@@ -246,7 +246,7 @@ public class LandVo extends BaseVo {
      *
      * @return the stake
      */
-    public float getStake() {
+    public Float getStake() {
         return stake;
     }
 
@@ -255,7 +255,7 @@ public class LandVo extends BaseVo {
      *
      * @param stake the stake
      */
-    public void setStake(float stake) {
+    public void setStake(Float stake) {
         this.stake = stake;
     }
 
@@ -528,4 +528,5 @@ public class LandVo extends BaseVo {
     public void setSaleState(SaleState saleState) {
         this.saleState = saleState;
     }
+
 }

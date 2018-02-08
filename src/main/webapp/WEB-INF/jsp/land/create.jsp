@@ -54,46 +54,46 @@
                                                                       placeholder="건물명"></div>
                                     </div>
                                     <div class="form-group"><label class="col-sm-2 control-label">총 층:</label>
-                                        <div class="col-sm-10"><input type="text" name="floorSize" class="form-control"
+                                        <div class="col-sm-10"><input type="number" name="floorSize" class="form-control"
                                                                       placeholder="층"></div>
                                     </div>
                                     <div class="form-group"><label class="col-sm-2 control-label">해당 층:</label>
-                                        <div class="col-sm-10"><input type="text" name="floor" class="form-control"
+                                        <div class="col-sm-10"><input type="number" name="floor" class="form-control"
                                                                       placeholder="층"></div>
                                     </div>
                                     <div class="form-group"><label class="col-sm-2 control-label">호 수:</label>
-                                        <div class="col-sm-10"><input type="text" name="buildingNumber"
+                                        <div class="col-sm-10"><input type="number" name="buildingNumber"
                                                                       class="form-control"
                                                                       placeholder="호"></div>
                                     </div>
                                     <div class="form-group"><label class="col-sm-2 control-label">공급 면적:</label>
-                                        <div class="col-sm-10"><input type="text" name="supplyArea" class="form-control"
+                                        <div class="col-sm-10"><input type="number" name="supplyArea" class="form-control"
                                                                       placeholder="평"></div>
                                     </div>
                                     <div class="form-group"><label class="col-sm-2 control-label">전용 면적:</label>
-                                        <div class="col-sm-10"><input type="text" name="exclusiveArea"
+                                        <div class="col-sm-10"><input type="number" name="exclusiveArea"
                                                                       class="form-control"
                                                                       placeholder="평"></div>
                                     </div>
                                     <div class="form-group"><label class="col-sm-2 control-label">지분:</label>
-                                        <div class="col-sm-10"><input type="text" name="stake" class="form-control"
+                                        <div class="col-sm-10"><input type="number" name="stake" class="form-control"
                                                                       placeholder="평"></div>
                                     </div>
                                     <div class="form-group"><label class="col-sm-2 control-label">방 수:</label>
-                                        <div class="col-sm-10"><input type="text" name="roomCount" class="form-control"
+                                        <div class="col-sm-10"><input type="number" name="roomCount" class="form-control"
                                                                       placeholder="개"></div>
                                     </div>
                                     <div class="form-group"><label class="col-sm-2 control-label">욕실 수:</label>
-                                        <div class="col-sm-10"><input type="text" name="bathroomCount"
+                                        <div class="col-sm-10"><input type="number" name="bathroomCount"
                                                                       class="form-control"
                                                                       placeholder="개"></div>
                                     </div>
                                     <div class="form-group"><label class="col-sm-2 control-label">보증금(전세, 매매금):</label>
-                                        <div class="col-sm-10"><input type="text" name="deposit" class="form-control"
+                                        <div class="col-sm-10"><input type="number" name="deposit" class="form-control"
                                                                       placeholder="만 원"></div>
                                     </div>
                                     <div class="form-group"><label class="col-sm-2 control-label">월세:</label>
-                                        <div class="col-sm-10"><input type="text" name="rentPrice" class="form-control"
+                                        <div class="col-sm-10"><input type="number" name="rentPrice" class="form-control"
                                                                       placeholder="만 원"></div>
                                     </div>
                                     <div class="form-group"><label class="col-sm-2 control-label">입주 가능일:</label>
@@ -131,13 +131,13 @@
 
                                 <fieldset class="form-horizontal">
                                     <div class="form-group"><label class="col-sm-2 control-label">보증금(전세, 매매금):</label>
-                                        <div class="col-sm-10"><input type="text" name="latestDeposit"
+                                        <div class="col-sm-10"><input type="number" name="latestDeposit"
                                                                       class="form-control"
                                                                       placeholder="만 원">
                                         </div>
                                     </div>
                                     <div class="form-group"><label class="col-sm-2 control-label">월세:</label>
-                                        <div class="col-sm-10"><input type="text" name="latestRentPrice"
+                                        <div class="col-sm-10"><input type="number" name="latestRentPrice"
                                                                       class="form-control"
                                                                       placeholder="만 원">
                                         </div>
@@ -156,7 +156,7 @@
                                         </div>
                                     </div>
                                     <div class="form-group"><label class="col-sm-2 control-label">연락처:</label>
-                                        <div class="col-sm-10"><input type="text" name="salesmanContact"
+                                        <div class="col-sm-10"><input type="tel" name="salesmanContact"
                                                                       class="form-control"
                                                                       placeholder="연락처">
                                         </div>
