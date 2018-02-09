@@ -12,38 +12,38 @@ import java.util.List;
  */
 public class BaseDao extends SqlSessionDaoSupport {
 
-    @Resource(name = "sqlSession")
-    @Override
-    public void setSqlSessionFactory(SqlSessionFactory sqlSession) {
-        super.setSqlSessionFactory(sqlSession);
-    }
+  @Resource(name = "sqlSession")
+  @Override
+  public void setSqlSessionFactory(SqlSessionFactory sqlSession) {
+    super.setSqlSessionFactory(sqlSession);
+  }
 
-    /**
-     * 단건 조회
-     * Select object.
-     *
-     * @param statement the statement
-     * @param param     the param
-     * @return the object
-     * @throws DataAccessException the data access exception
-     */
-    protected Object select(String statement, Object param) throws DataAccessException {
-        return getSqlSession().selectOne(statement, param);
-    }
+  /**
+   * 단건 조회
+   * Select object.
+   *
+   * @param statement the statement
+   * @param param     the param
+   * @return the object
+   * @throws DataAccessException the data access exception
+   */
+  protected Object select(String statement, Object param) throws DataAccessException {
+    return getSqlSession().selectOne(statement, param);
+  }
 
-    /**
-     * 페이지 조회
-     * List list.
-     *
-     * @param <T>       the type parameter
-     * @param statement the statement
-     * @param parameter the parameter
-     * @return the list
-     * @throws DataAccessException the data access exception
-     */
-    protected <T> List<T> list(String statement, Object parameter) throws DataAccessException {
-        return getSqlSession().selectList(statement, parameter);
-    }
+  /**
+   * 페이지 조회
+   * List list.
+   *
+   * @param <T>       the type parameter
+   * @param statement the statement
+   * @param parameter the parameter
+   * @return the list
+   * @throws DataAccessException the data access exception
+   */
+  protected <T> List<T> list(String statement, Object parameter) throws DataAccessException {
+    return getSqlSession().selectList(statement, parameter);
+  }
 
     /*protected <T> PagingInfo<T> page(String statement, PagingCondition parameter) throws DataAccessException {
         return page(statement, null, parameter);
@@ -72,43 +72,43 @@ public class BaseDao extends SqlSessionDaoSupport {
         return pageInfo;
     }*/
 
-    /**
-     * 등록
-     * Insert int.
-     *
-     * @param statement the statement
-     * @param parameter the parameter
-     * @return the int
-     * @throws DataAccessException the data access exception
-     */
-    protected int insert(String statement, Object parameter) throws DataAccessException {
-        return getSqlSession().insert(statement, parameter);
-    }
+  /**
+   * 등록
+   * Insert int.
+   *
+   * @param statement the statement
+   * @param parameter the parameter
+   * @return the int
+   * @throws DataAccessException the data access exception
+   */
+  protected int insert(String statement, Object parameter) throws DataAccessException {
+    return getSqlSession().insert(statement, parameter);
+  }
 
-    /**
-     * 수정
-     * Update int.
-     *
-     * @param statement the statement
-     * @param parameter the parameter
-     * @return the int
-     * @throws DataAccessException the data access exception
-     */
-    protected int update(String statement, Object parameter) throws DataAccessException {
-        return getSqlSession().update(statement, parameter);
-    }
+  /**
+   * 수정
+   * Update int.
+   *
+   * @param statement the statement
+   * @param parameter the parameter
+   * @return the int
+   * @throws DataAccessException the data access exception
+   */
+  protected int update(String statement, Object parameter) throws DataAccessException {
+    return getSqlSession().update(statement, parameter);
+  }
 
-    /**
-     * 삭제
-     * Delete int.
-     *
-     * @param statement the statement
-     * @param parameter the parameter
-     * @return the int
-     * @throws DataAccessException the data access exception
-     */
-    protected int delete(String statement, Object parameter) throws DataAccessException {
-        return getSqlSession().delete(statement, parameter);
-    }
+  /**
+   * 삭제
+   * Delete int.
+   *
+   * @param statement the statement
+   * @param parameter the parameter
+   * @return the int
+   * @throws DataAccessException the data access exception
+   */
+  protected int delete(String statement, Object parameter) throws DataAccessException {
+    return getSqlSession().delete(statement, parameter);
+  }
 
 }

@@ -20,259 +20,259 @@ import java.util.List;
 @RequestMapping(value = "/land")
 public class LandController extends BaseController {
 
-    @Resource(name = "landService")
-    private LandService landService;
+  @Resource(name = "landService")
+  private LandService landService;
 
-    /**
-     * Land list string.
-     *
-     * @param model the model
-     * @return the string
-     * @throws Exception the exception
-     */
-    @RequestMapping(value = "/list", method = RequestMethod.GET)
-    public String showLandList(Model model) throws Exception {
-        // 서버 시간
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-        String formattedDate = dateFormat.format(new Date());
-        model.addAttribute("serverDate", formattedDate);
+  /**
+   * Land list string.
+   *
+   * @param model the model
+   * @return the string
+   * @throws Exception the exception
+   */
+  @RequestMapping(value = "/list", method = RequestMethod.GET)
+  public String showLandList(Model model) throws Exception {
+    // 서버 시간
+    SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+    String formattedDate = dateFormat.format(new Date());
+    model.addAttribute("serverDate", formattedDate);
 
-        // 매매 리스트 조회
-        List<LandVo> boughtLandVos = landService.selectBoughtLandList(new LandVo());
-        model.addAttribute("boughtLandVos", boughtLandVos);
+    // 매매 리스트 조회
+    List<LandVo> boughtLandVos = landService.selectBoughtLandList(new LandVo());
+    model.addAttribute("boughtLandVos", boughtLandVos);
 
-        // 전세 리스트 조회
-        List<LandVo> leasedLandVos = landService.selectLeasedLandList(new LandVo());
-        model.addAttribute("leasedLandVos", leasedLandVos);
+    // 전세 리스트 조회
+    List<LandVo> leasedLandVos = landService.selectLeasedLandList(new LandVo());
+    model.addAttribute("leasedLandVos", leasedLandVos);
 
-        // 월세 리스트 조회
-        List<LandVo> rentedLandVos = landService.selectRentedLandList(new LandVo());
-        model.addAttribute("rentedLandVos", rentedLandVos);
+    // 월세 리스트 조회
+    List<LandVo> rentedLandVos = landService.selectRentedLandList(new LandVo());
+    model.addAttribute("rentedLandVos", rentedLandVos);
 
-        return "land/list";
-    }
+    return "land/list";
+  }
 
-    /**
-     * Show bought land list string.
-     *
-     * @param model the model
-     * @return the string
-     * @throws Exception the exception
-     */
-    @RequestMapping(value = "/bought-list", method = RequestMethod.GET)
-    public String showBoughtLandList(Model model) throws Exception {
-        // 서버 시간
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-        String formattedDate = dateFormat.format(new Date());
-        model.addAttribute("serverDate", formattedDate);
+  /**
+   * Show bought land list string.
+   *
+   * @param model the model
+   * @return the string
+   * @throws Exception the exception
+   */
+  @RequestMapping(value = "/bought-list", method = RequestMethod.GET)
+  public String showBoughtLandList(Model model) throws Exception {
+    // 서버 시간
+    SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+    String formattedDate = dateFormat.format(new Date());
+    model.addAttribute("serverDate", formattedDate);
 
-        // 매매 리스트 조회
-        List<LandVo> boughtLandVos = landService.selectBoughtLandList(new LandVo());
-        model.addAttribute("boughtLandVos", boughtLandVos);
+    // 매매 리스트 조회
+    List<LandVo> boughtLandVos = landService.selectBoughtLandList(new LandVo());
+    model.addAttribute("boughtLandVos", boughtLandVos);
 
-        return "land/bought-list";
-    }
+    return "land/bought-list";
+  }
 
-    /**
-     * Show leased land list string.
-     *
-     * @param model the model
-     * @return the string
-     * @throws Exception the exception
-     */
-    @RequestMapping(value = "/leased-list", method = RequestMethod.GET)
-    public String showLeasedLandList(Model model) throws Exception {
-        // 서버 시간
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-        String formattedDate = dateFormat.format(new Date());
-        model.addAttribute("serverDate", formattedDate);
+  /**
+   * Show leased land list string.
+   *
+   * @param model the model
+   * @return the string
+   * @throws Exception the exception
+   */
+  @RequestMapping(value = "/leased-list", method = RequestMethod.GET)
+  public String showLeasedLandList(Model model) throws Exception {
+    // 서버 시간
+    SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+    String formattedDate = dateFormat.format(new Date());
+    model.addAttribute("serverDate", formattedDate);
 
-        // 전세 리스트 조회
-        List<LandVo> leasedLandVos = landService.selectLeasedLandList(new LandVo());
-        model.addAttribute("leasedLandVos", leasedLandVos);
+    // 전세 리스트 조회
+    List<LandVo> leasedLandVos = landService.selectLeasedLandList(new LandVo());
+    model.addAttribute("leasedLandVos", leasedLandVos);
 
-        return "land/leased-list";
-    }
+    return "land/leased-list";
+  }
 
-    /**
-     * Show rented land list string.
-     *
-     * @param model the model
-     * @return the string
-     * @throws Exception the exception
-     */
-    @RequestMapping(value = "/rented-list", method = RequestMethod.GET)
-    public String showRentedLandList(Model model) throws Exception {
-        // 서버 시간
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-        String formattedDate = dateFormat.format(new Date());
-        model.addAttribute("serverDate", formattedDate);
+  /**
+   * Show rented land list string.
+   *
+   * @param model the model
+   * @return the string
+   * @throws Exception the exception
+   */
+  @RequestMapping(value = "/rented-list", method = RequestMethod.GET)
+  public String showRentedLandList(Model model) throws Exception {
+    // 서버 시간
+    SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+    String formattedDate = dateFormat.format(new Date());
+    model.addAttribute("serverDate", formattedDate);
 
-        // 월세 리스트 조회
-        List<LandVo> rentedLandVos = landService.selectRentedLandList(new LandVo());
-        model.addAttribute("rentedLandVos", rentedLandVos);
+    // 월세 리스트 조회
+    List<LandVo> rentedLandVos = landService.selectRentedLandList(new LandVo());
+    model.addAttribute("rentedLandVos", rentedLandVos);
 
-        return "land/rented-list";
-    }
+    return "land/rented-list";
+  }
 
-    /**
-     * Show land detail string.
-     *
-     * @param model  the model
-     * @param landSq the landSq
-     * @return the string
-     * @throws Exception the exception
-     */
-    @RequestMapping(value = "/detail/{landSq}", method = RequestMethod.GET)
-    public String showLandDetail(Model model, @PathVariable(value = "landSq") int landSq) throws Exception {
-        // land param 생성
-        LandVo param = new LandVo();
-        param.setLandSq(landSq);
+  /**
+   * Show land detail string.
+   *
+   * @param model  the model
+   * @param landSq the landSq
+   * @return the string
+   * @throws Exception the exception
+   */
+  @RequestMapping(value = "/detail/{landSq}", method = RequestMethod.GET)
+  public String showLandDetail(Model model, @PathVariable(value = "landSq") int landSq) throws Exception {
+    // land param 생성
+    LandVo param = new LandVo();
+    param.setLandSq(landSq);
 
-        // land 정보 조회
-        LandVo landVo = landService.selectLand(param);
+    // land 정보 조회
+    LandVo landVo = landService.selectLand(param);
 
-        model.addAttribute("landVo", landVo);
+    model.addAttribute("landVo", landVo);
 
-        return "land/detail";
-    }
+    return "land/detail";
+  }
 
-    /**
-     * Land writing string.
-     *
-     * @param model the model
-     * @return the string
-     */
-    @RequestMapping(value = "/create", method = RequestMethod.GET)
-    public String showLandWriting(Model model) {
-        // 서버 시간
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-        String formattedDate = dateFormat.format(new Date());
-        model.addAttribute("serverDate", formattedDate);
+  /**
+   * Land writing string.
+   *
+   * @param model the model
+   * @return the string
+   */
+  @RequestMapping(value = "/create", method = RequestMethod.GET)
+  public String showLandWriting(Model model) {
+    // 서버 시간
+    SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+    String formattedDate = dateFormat.format(new Date());
+    model.addAttribute("serverDate", formattedDate);
 
-        return "land/create";
-    }
+    return "land/create";
+  }
 
-    /**
-     * Write land string.
-     *
-     * @param landVo the land vo
-     * @return the string
-     * @throws Exception the exception
-     */
-    @RequestMapping(value = "/create", method = RequestMethod.POST)
-    public String writeLand(LandVo landVo) throws Exception {
-        // 판매 상태 설정 - "판매중"
-        landVo.setSaleState(LandVo.SaleState.SALE);
+  /**
+   * Write land string.
+   *
+   * @param landVo the land vo
+   * @return the string
+   * @throws Exception the exception
+   */
+  @RequestMapping(value = "/create", method = RequestMethod.POST)
+  public String writeLand(LandVo landVo) throws Exception {
+    // 판매 상태 설정 - "판매중"
+    landVo.setSaleState(LandVo.SaleState.SALE);
 
-        // land 정보 삽입
-        landService.insertLand(landVo);
+    // land 정보 삽입
+    landService.insertLand(landVo);
 
-        return String.format("redirect:/land/detail/%d", landVo.getLandSq());
-    }
+    return String.format("redirect:/land/detail/%d", landVo.getLandSq());
+  }
 
-    /**
-     * Show land edit string.
-     *
-     * @param model  the model
-     * @param landSq the land sq
-     * @return the string
-     * @throws Exception the exception
-     */
-    @RequestMapping(value = "/edit/{landSq}", method = RequestMethod.GET)
-    public String showLandEdit(Model model, @PathVariable(value = "landSq") int landSq) throws Exception {
-        // 서버 시간
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-        String formattedDate = dateFormat.format(new Date());
-        model.addAttribute("serverDate", formattedDate);
+  /**
+   * Show land edit string.
+   *
+   * @param model  the model
+   * @param landSq the land sq
+   * @return the string
+   * @throws Exception the exception
+   */
+  @RequestMapping(value = "/edit/{landSq}", method = RequestMethod.GET)
+  public String showLandEdit(Model model, @PathVariable(value = "landSq") int landSq) throws Exception {
+    // 서버 시간
+    SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+    String formattedDate = dateFormat.format(new Date());
+    model.addAttribute("serverDate", formattedDate);
 
-        // land param 생성
-        LandVo param = new LandVo();
-        param.setLandSq(landSq);
+    // land param 생성
+    LandVo param = new LandVo();
+    param.setLandSq(landSq);
 
-        // land 정보 조회
-        LandVo landVo = landService.selectLand(param);
+    // land 정보 조회
+    LandVo landVo = landService.selectLand(param);
 
-        model.addAttribute("landVo", landVo);
+    model.addAttribute("landVo", landVo);
 
-        return "land/edit";
-    }
+    return "land/edit";
+  }
 
-    /**
-     * Edit land string.
-     *
-     * @param landVo the land vo
-     * @param landSq the land sq
-     * @return the string
-     * @throws Exception the exception
-     */
-    @RequestMapping(value = "/edit/{landSq}", method = RequestMethod.POST)
-    public String editLand(LandVo landVo, @PathVariable(value = "landSq") int landSq) throws Exception {
-        // landSq 삽입
-        landVo.setLandSq(landSq);
+  /**
+   * Edit land string.
+   *
+   * @param landVo the land vo
+   * @param landSq the land sq
+   * @return the string
+   * @throws Exception the exception
+   */
+  @RequestMapping(value = "/edit/{landSq}", method = RequestMethod.POST)
+  public String editLand(LandVo landVo, @PathVariable(value = "landSq") int landSq) throws Exception {
+    // landSq 삽입
+    landVo.setLandSq(landSq);
 
-        // land 정보 수정
-        landService.updateLand(landVo);
+    // land 정보 수정
+    landService.updateLand(landVo);
 
-        return String.format("redirect:/land/detail/%d", landVo.getLandSq());
-    }
+    return String.format("redirect:/land/detail/%d", landVo.getLandSq());
+  }
 
-    /**
-     * Delete land string.
-     *
-     * @param landVo the land vo
-     * @param landSq the land sq
-     * @return the string
-     * @throws Exception the exception
-     */
-    @RequestMapping(value = "/delete/{landSq}", method = RequestMethod.POST)
-    public String deleteLand(LandVo landVo, @PathVariable(value = "landSq") int landSq) throws Exception {
-        // land param 생성
-        LandVo param = new LandVo();
-        param.setLandSq(landSq);
+  /**
+   * Delete land string.
+   *
+   * @param landVo the land vo
+   * @param landSq the land sq
+   * @return the string
+   * @throws Exception the exception
+   */
+  @RequestMapping(value = "/delete/{landSq}", method = RequestMethod.POST)
+  public String deleteLand(LandVo landVo, @PathVariable(value = "landSq") int landSq) throws Exception {
+    // land param 생성
+    LandVo param = new LandVo();
+    param.setLandSq(landSq);
 
-        // land 삭제
-        landService.deleteLand(landVo);
+    // land 삭제
+    landService.deleteLand(landVo);
 
-        return "redirect:/land/list";
-    }
+    return "redirect:/land/list";
+  }
 
-    /**
-     * Sell land string.
-     *
-     * @param landSq the land sq
-     * @return the string
-     * @throws Exception the exception
-     */
-    @RequestMapping(value = "/sale/{landSq}", method = RequestMethod.POST)
-    public String sellLand(@PathVariable(value = "landSq") int landSq) throws Exception {
-        LandVo param = new LandVo();
-        param.setLandSq(landSq);
-        param.setSaleState(LandVo.SaleState.SALE);
+  /**
+   * Sell land string.
+   *
+   * @param landSq the land sq
+   * @return the string
+   * @throws Exception the exception
+   */
+  @RequestMapping(value = "/sale/{landSq}", method = RequestMethod.POST)
+  public String sellLand(@PathVariable(value = "landSq") int landSq) throws Exception {
+    LandVo param = new LandVo();
+    param.setLandSq(landSq);
+    param.setSaleState(LandVo.SaleState.SALE);
 
-        // land 정보 조회
-        landService.updateLandSaleState(param);
+    // land 정보 조회
+    landService.updateLandSaleState(param);
 
-        return String.format("redirect:/land/detail/%d", param.getLandSq());
-    }
+    return String.format("redirect:/land/detail/%d", param.getLandSq());
+  }
 
-    /**
-     * Sell out land string.
-     *
-     * @param landSq the land sq
-     * @return the string
-     * @throws Exception the exception
-     */
-    @RequestMapping(value = "/sold-out/{landSq}", method = RequestMethod.POST)
-    public String sellOutLand(@PathVariable(value = "landSq") int landSq) throws Exception {
-        LandVo param = new LandVo();
-        param.setLandSq(landSq);
-        param.setSaleState(LandVo.SaleState.SOLD_OUT);
+  /**
+   * Sell out land string.
+   *
+   * @param landSq the land sq
+   * @return the string
+   * @throws Exception the exception
+   */
+  @RequestMapping(value = "/sold-out/{landSq}", method = RequestMethod.POST)
+  public String sellOutLand(@PathVariable(value = "landSq") int landSq) throws Exception {
+    LandVo param = new LandVo();
+    param.setLandSq(landSq);
+    param.setSaleState(LandVo.SaleState.SOLD_OUT);
 
-        // land 정보 조회
-        landService.updateLandSaleState(param);
+    // land 정보 조회
+    landService.updateLandSaleState(param);
 
-        return String.format("redirect:/land/detail/%d", param.getLandSq());
-    }
+    return String.format("redirect:/land/detail/%d", param.getLandSq());
+  }
 
 }

@@ -12,43 +12,43 @@ import java.util.List;
 @Service("landService")
 public class LandServiceImpl extends BaseService implements LandService {
 
-    @Resource(name = "landDao")
-    private LandDao landDao;
+  @Resource(name = "landDao")
+  private LandDao landDao;
 
-    public LandVo selectLand(LandVo landVo) throws Exception {
-        return landDao.selectLand(landVo);
-    }
+  public LandVo selectLand(LandVo landVo) throws Exception {
+    return landDao.selectLand(landVo);
+  }
 
-    public List<LandVo> selectLandList(LandVo landVo) throws Exception {
-        return landDao.selectLandList(landVo);
-    }
+  public List<LandVo> selectLandList(LandVo landVo) throws Exception {
+    return landDao.selectLandList(landVo);
+  }
 
-    public List<LandVo> selectBoughtLandList(LandVo landVo) throws Exception {
-        return landDao.selectBoughtLandList(landVo);
-    }
+  public List<LandVo> selectBoughtLandList(LandVo landVo) throws Exception {
+    return landDao.selectBoughtLandList(landVo);
+  }
 
-    public List<LandVo> selectLeasedLandList(LandVo landVo) throws Exception {
-        return landDao.selectLeasedLandList(landVo);
-    }
+  public List<LandVo> selectLeasedLandList(LandVo landVo) throws Exception {
+    return landDao.selectLeasedLandList(landVo);
+  }
 
-    public List<LandVo> selectRentedLandList(LandVo landVo) throws Exception {
-        return landDao.selectRentedLandList(landVo);
-    }
+  public List<LandVo> selectRentedLandList(LandVo landVo) throws Exception {
+    return landDao.selectRentedLandList(landVo);
+  }
 
-    public int updateLand(LandVo landVo) throws Exception {
-        return landDao.updateLand(landVo);
-    }
+  public int updateLand(LandVo landVo) throws Exception {
+    return landDao.updateLand(landVo);
+  }
 
-    public int insertLand(LandVo landVo) throws Exception {
-        return landDao.insertLand(landVo);
-    }
+  public int insertLand(LandVo landVo) throws Exception {
+    return landDao.insertLand(landVo);
+  }
 
-    public int updateLandSaleState(LandVo landVo) throws Exception {
-        return landDao.updateLandSaleState(landVo);
-    }
+  public int updateLandSaleState(LandVo landVo) throws Exception {
+    return landDao.updateLandSaleState(landVo);
+  }
 
-    public int deleteLand(LandVo landVo) throws Exception {
-        return landDao.deleteLand(landVo);
-    }
+  public int deleteLand(LandVo landVo) throws Exception {
+    return landDao.deleteLand(landVo);
+  }
 
 }
