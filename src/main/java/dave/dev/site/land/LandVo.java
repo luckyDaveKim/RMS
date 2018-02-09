@@ -27,7 +27,7 @@ public class LandVo extends BaseVo {
     private final int code;
     private final String description;
 
-    private SaleType(int code, String description) {
+    SaleType(int code, String description) {
       this.code = code;
       this.description = description;
     }
@@ -67,7 +67,7 @@ public class LandVo extends BaseVo {
     private final int code;
     private final String description;
 
-    private SaleState(int code, String description) {
+    SaleState(int code, String description) {
       this.code = code;
       this.description = description;
     }

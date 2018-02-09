@@ -28,10 +28,9 @@ public class LandController extends BaseController {
    *
    * @param model the model
    * @return the string
-   * @throws Exception the exception
    */
   @RequestMapping(value = "/list", method = RequestMethod.GET)
-  public String showLandList(Model model) throws Exception {
+  public String showLandList(Model model) {
     // 서버 시간
     SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
     String formattedDate = dateFormat.format(new Date());
@@ -57,10 +56,9 @@ public class LandController extends BaseController {
    *
    * @param model the model
    * @return the string
-   * @throws Exception the exception
    */
   @RequestMapping(value = "/bought-list", method = RequestMethod.GET)
-  public String showBoughtLandList(Model model) throws Exception {
+  public String showBoughtLandList(Model model) {
     // 서버 시간
     SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
     String formattedDate = dateFormat.format(new Date());
@@ -78,10 +76,9 @@ public class LandController extends BaseController {
    *
    * @param model the model
    * @return the string
-   * @throws Exception the exception
    */
   @RequestMapping(value = "/leased-list", method = RequestMethod.GET)
-  public String showLeasedLandList(Model model) throws Exception {
+  public String showLeasedLandList(Model model) {
     // 서버 시간
     SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
     String formattedDate = dateFormat.format(new Date());
@@ -99,10 +96,9 @@ public class LandController extends BaseController {
    *
    * @param model the model
    * @return the string
-   * @throws Exception the exception
    */
   @RequestMapping(value = "/rented-list", method = RequestMethod.GET)
-  public String showRentedLandList(Model model) throws Exception {
+  public String showRentedLandList(Model model) {
     // 서버 시간
     SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
     String formattedDate = dateFormat.format(new Date());
@@ -121,10 +117,9 @@ public class LandController extends BaseController {
    * @param model  the model
    * @param landSq the landSq
    * @return the string
-   * @throws Exception the exception
    */
   @RequestMapping(value = "/detail/{landSq}", method = RequestMethod.GET)
-  public String showLandDetail(Model model, @PathVariable(value = "landSq") int landSq) throws Exception {
+  public String showLandDetail(Model model, @PathVariable(value = "landSq") int landSq) {
     // land param 생성
     LandVo param = new LandVo();
     param.setLandSq(landSq);
@@ -158,10 +153,9 @@ public class LandController extends BaseController {
    *
    * @param landVo the land vo
    * @return the string
-   * @throws Exception the exception
    */
   @RequestMapping(value = "/create", method = RequestMethod.POST)
-  public String writeLand(LandVo landVo) throws Exception {
+  public String writeLand(LandVo landVo) {
     // 판매 상태 설정 - "판매중"
     landVo.setSaleState(LandVo.SaleState.SALE);
 
@@ -177,10 +171,9 @@ public class LandController extends BaseController {
    * @param model  the model
    * @param landSq the land sq
    * @return the string
-   * @throws Exception the exception
    */
   @RequestMapping(value = "/edit/{landSq}", method = RequestMethod.GET)
-  public String showLandEdit(Model model, @PathVariable(value = "landSq") int landSq) throws Exception {
+  public String showLandEdit(Model model, @PathVariable(value = "landSq") int landSq) {
     // 서버 시간
     SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
     String formattedDate = dateFormat.format(new Date());
@@ -204,10 +197,9 @@ public class LandController extends BaseController {
    * @param landVo the land vo
    * @param landSq the land sq
    * @return the string
-   * @throws Exception the exception
    */
   @RequestMapping(value = "/edit/{landSq}", method = RequestMethod.POST)
-  public String editLand(LandVo landVo, @PathVariable(value = "landSq") int landSq) throws Exception {
+  public String editLand(LandVo landVo, @PathVariable(value = "landSq") int landSq) {
     // landSq 삽입
     landVo.setLandSq(landSq);
 
@@ -223,10 +215,9 @@ public class LandController extends BaseController {
    * @param landVo the land vo
    * @param landSq the land sq
    * @return the string
-   * @throws Exception the exception
    */
   @RequestMapping(value = "/delete/{landSq}", method = RequestMethod.POST)
-  public String deleteLand(LandVo landVo, @PathVariable(value = "landSq") int landSq) throws Exception {
+  public String deleteLand(LandVo landVo, @PathVariable(value = "landSq") int landSq) {
     // land param 생성
     LandVo param = new LandVo();
     param.setLandSq(landSq);
@@ -242,10 +233,9 @@ public class LandController extends BaseController {
    *
    * @param landSq the land sq
    * @return the string
-   * @throws Exception the exception
    */
   @RequestMapping(value = "/sale/{landSq}", method = RequestMethod.POST)
-  public String sellLand(@PathVariable(value = "landSq") int landSq) throws Exception {
+  public String sellLand(@PathVariable(value = "landSq") int landSq) {
     LandVo param = new LandVo();
     param.setLandSq(landSq);
     param.setSaleState(LandVo.SaleState.SALE);
@@ -261,10 +251,9 @@ public class LandController extends BaseController {
    *
    * @param landSq the land sq
    * @return the string
-   * @throws Exception the exception
    */
   @RequestMapping(value = "/sold-out/{landSq}", method = RequestMethod.POST)
-  public String sellOutLand(@PathVariable(value = "landSq") int landSq) throws Exception {
+  public String sellOutLand(@PathVariable(value = "landSq") int landSq) {
     LandVo param = new LandVo();
     param.setLandSq(landSq);
     param.setSaleState(LandVo.SaleState.SOLD_OUT);

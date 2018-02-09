@@ -12,80 +12,71 @@ public interface LandService {
    *
    * @param landVo the land vo
    * @return the land vo
-   * @throws Exception the exception
    */
-  public LandVo selectLand(LandVo landVo) throws Exception;
+  LandVo selectLand(LandVo landVo);
 
   /**
    * Select land list list.
    *
    * @param landVo the land vo
    * @return the list
-   * @throws Exception the exception
    */
-  public List<LandVo> selectLandList(LandVo landVo) throws Exception;
+  List<LandVo> selectLandList(LandVo landVo);
 
   /**
    * Select bought land list list.
    *
    * @param landVo the land vo
    * @return the list
-   * @throws Exception the exception
    */
-  public List<LandVo> selectBoughtLandList(LandVo landVo) throws Exception;
+  List<LandVo> selectBoughtLandList(LandVo landVo);
 
   /**
    * Select leased land list list.
    *
    * @param landVo the land vo
-   * @return the list
-   * @throws Exception the exception
+   * @return the list @ the exception
    */
-  public List<LandVo> selectLeasedLandList(LandVo landVo) throws Exception;
+  List<LandVo> selectLeasedLandList(LandVo landVo);
 
   /**
    * Select rented land list list.
    *
    * @param landVo the land vo
-   * @return the list
-   * @throws Exception the exception
+   * @return the list @ the exception
    */
-  public List<LandVo> selectRentedLandList(LandVo landVo) throws Exception;
+  List<LandVo> selectRentedLandList(LandVo landVo);
 
   /**
    * Update land int.
    *
    * @param landVo the land vo
-   * @return the int
-   * @throws Exception the exception
+   * @return the int @ the exception
    */
-  public int updateLand(LandVo landVo) throws Exception;
+  int updateLand(LandVo landVo);
 
   /**
    * Insert land int.
    *
    * @param landVo the land vo
-   * @return the int
-   * @throws Exception the exception
+   * @return the int @ the exception
    */
-  public int insertLand(LandVo landVo) throws Exception;
+  int insertLand(LandVo landVo);
 
   /**
    * Update land sale state int.
    *
    * @param landVo the land vo
-   * @return the int
-   * @throws Exception the exception
+   * @return the int @ the exception
    */
-  public int updateLandSaleState(LandVo landVo) throws Exception;
+  int updateLandSaleState(LandVo landVo);
 
   /**
    * Delete land int.
    *
    * @param landVo the land vo
-   * @return the int
-   * @throws Exception the exception
+   * @return the int @ the exception
    */
-  public int deleteLand(LandVo landVo) throws Exception;
+  int deleteLand(LandVo landVo);
 
 }
