@@ -195,7 +195,14 @@
                                         ${leasedLandVo.memo}
                                 </td>
                                 <td>
-                                        ${leasedLandVo.liveableDate}
+                                    <c:choose>
+                                        <c:when test="${leasedLandVo.liveableDate.compareTo(serverDate) > 0}">
+                                            ${leasedLandVo.liveableDate}
+                                        </c:when>
+                                        <c:otherwise>
+                                            즉시 입주
+                                        </c:otherwise>
+                                    </c:choose>
                                 </td>
                                 <td class="text-right">
                                     <div class="btn-group">
@@ -295,7 +302,14 @@
                                         ${rentedLandVo.memo}
                                 </td>
                                 <td>
-                                        ${rentedLandVo.liveableDate}
+                                    <c:choose>
+                                        <c:when test="${rentedLandVo.liveableDate.compareTo(serverDate) > 0}">
+                                            ${rentedLandVo.liveableDate}
+                                        </c:when>
+                                        <c:otherwise>
+                                            즉시 입주
+                                        </c:otherwise>
+                                    </c:choose>
                                 </td>
                                 <td class="text-right">
                                     <div class="btn-group">
@@ -346,5 +360,4 @@
         $('.footable').footable();
 
     });
-
 </script>
